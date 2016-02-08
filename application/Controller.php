@@ -1,15 +1,15 @@
 <?php
 abstract class Controller
 {
-    protected $_view;
+    protected $_vista;
     
     public function __construct() {
-        $this->_view = new View(new Request);
+        $this->_vista = new View(new Request);
     }
     abstract public function index();
     
     
-     protected function loadModel($modelo)
+     protected function cargar_modelo($modelo)
     {
         $modelo = $modelo . 'Model';
         $rutaModelo = ROOT . 'models' . DS . $modelo . '.php';
