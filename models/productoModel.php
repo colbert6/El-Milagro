@@ -92,7 +92,7 @@ class productoModel extends Model
     
     function buscar_codigo_barra($codigo)
     {
-        $datos = $this->_db->query("select codigo_barra from producto where estado=1");
+        $datos = $this->_db->query("select * from producto where estado=1 and codigo_barra='".$codigo."'");
         return $datos->fetchall();
             
     }

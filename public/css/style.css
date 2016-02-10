@@ -1,14 +1,14 @@
 @media(min-width: 1100px){
     #headerSection {
 	width: 1100px;
-        height: 62px;
+        height: 12px!important;
 	margin: 0 auto;
 	-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.5);box-shadow:0 5px 15px rgba(0,0,0,0.5);
     }
     #cuerpo {
 	width: 1100px;
         height: 780px;
-	margin: 4px auto;
+	margin: 3px auto;
 	-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.5);box-shadow:0 5px 15px rgba(0,0,0,0.5);
     }
 }
@@ -24,7 +24,7 @@ body{
 	color: #666;
 	border-top: 3px solid #eee;
 	background:#E2E2DB;//#343434 url("../img/back.png") repeat;  
-	padding-top: 56px;
+	padding-top: 46px;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -905,7 +905,7 @@ border: 1px solid transparent;
   background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: linear-gradient(top, #f8f8f8, #f2f2f2);
-  padding: 8px 20px;
+  padding: 2px 20px;
   border-bottom: 1px solid #fff;
   box-shadow: inset 0px 1px 1px #fff;
 }

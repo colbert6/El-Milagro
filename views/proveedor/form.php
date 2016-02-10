@@ -50,7 +50,7 @@
         <div class="form-group" style="margin-top: 8%"> 
             <div class="col-sm-offset-3 col-sm-8">
             <button type="button" class="btn btn-primary" id="save"> Guardar</button>
-                <a style="margin-left: 8%" href="<?php echo BASE_URL?>proveedorproveedor"  class="btn btn-danger">Cancelar</a>
+                <a style="margin-left: 8%" href="<?php echo BASE_URL?>proveedor"  class="btn btn-danger">Cancelar</a>
             </div>
         </div>
 

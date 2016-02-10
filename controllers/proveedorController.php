@@ -56,5 +56,14 @@ class proveedorController extends Controller
         $this->_vista->setJs_(array('funciones_form'));
         $this->_vista->renderizar('form');
     }
+    public function buscador(){
+        if(isset($_POST['ruc'])){
+            $busqueda = $this->_model->buscar_ruc(trim($_POST['ruc']));
+            
+        }else{
+            $busqueda = $this->_model->selecciona();
+        }
+        echo json_encode($busqueda);
+    }
 }
 ?>

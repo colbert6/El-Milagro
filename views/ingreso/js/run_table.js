@@ -1,8 +1,5 @@
    $(document).ready(function() {
-                $('#table').dataTable({
-                    "scrollY":        "1000px",
-                    "scrollCollapse": true,
-                    "paging":         false,
+                $('#table2').dataTable({
                     'sPaginationType': 'full_numbers',
                     'oLanguage':{
                         'sProcessing':     'Cargando...',
@@ -17,16 +14,26 @@
                         'sUrl':            '',
                         'sInfoThousands':  '',
                         'sLoadingRecords': 'Cargando...',
+                        'oPaginate': {
+                            'sFirst':    'Primero',
+                            'sLast':     'Último',
+                            'sNext':     'Siguiente',
+                            'sPrevious': 'Anterior'
+                        },
                         'oAria': {
                             'sSortAscending':  ': Activar para ordenar la columna de manera ascendente',
                             'sSortDescending': ': Activar para ordenar la columna de manera descendente'
                         }
                     },
-                    'aaSorting': [[ 2, 'asc' ]],//ordenar
-                    'iDisplayLength': 15,
-                    'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']]
+                    'aaSorting': [[ 0, 'asc' ]],//ordenar
+                    'iDisplayLength': 10,
+                    'aLengthMenu': [[5, 10, 20, -1], [5, 10, 20, 'All']]
                     
+                       
+                     
                     
                 });
-                $('div.dataTables_filter input').focus()
+                
             }); 
+ 	
+

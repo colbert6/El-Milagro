@@ -5,7 +5,10 @@
         <thead>
             <tr>
                 <th>ITEM</th>
-                <th>DESCRIPCION</th>
+                <th>Razon Social</th>
+                <th>RUC</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
@@ -13,7 +16,10 @@
             <?php for ($i = 0; $i < count($this->datos); $i++) { ?>
             <tr>
                 <td><?php echo ($i+1);//id ?></td>
-                <td><?php echo $this->datos[$i]['descripcion'];//nombre ?></td> 
+                <td><?php echo $this->datos[$i]['razon_social'];//nombre ?></td> 
+                <td><?php echo $this->datos[$i]['ruc'];//nombre ?></td> 
+                <td><?php echo $this->datos[$i]['direccion'];//nombre ?></td> 
+                <td><?php echo $this->datos[$i]['telefono'];//nombre ?></td> 
                 <td>
                     <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>proveedor/editar/<?php echo $this->datos[$i]['id_proveedor'] ?>')" class="btn btn-success btn-minier"><i class="icon-pencil icon-white"></i></a>
                     

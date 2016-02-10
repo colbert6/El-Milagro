@@ -25,4 +25,22 @@ $(function() {
         }
         return false;
     }); 
+    
+    $("#ruc").blur(function(){
+        if($(this).val()!='' && $(this).val().length==11){
+            
+            $.post(url+'proveedor/buscador','ruc='+$(this).val(),function(datos){
+                if(datos.length>0 ){
+                    if($("#id_proveedor").val()==datos[0].id_proveedor){  
+                        
+                    }else{
+                        alert("El proovedor ya existe");
+                        $("#ruc").focus();
+                    }
+                    
+                }
+            },'json');
+        }
+    });
+    
 });

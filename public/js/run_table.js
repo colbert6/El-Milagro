@@ -31,5 +31,6 @@
                     
                     
                 });
+                $('div.dataTables_filter input').focus()
                 
             }); 

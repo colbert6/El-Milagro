@@ -26,19 +26,7 @@ class productoController extends Controller
     
     public function nuevo() {
         if ($_POST['guardar'] == 1) {
-            /***        Comprobar codigo de barra              ***/
-            $flag_cod_barra=0;
             
-            if(trim($_POST['codigo_barra'])){
-                $busqueda=$this->_model->buscar_codigo_barra(trim($_POST['codigo_barra']));
-                
-                if(count($busqueda)<>0){
-                    $flag_cod_barra=1;
-                }
-            }
-            
-            
-            if($flag_cod_barra==0){
                 
                 $this->_model->codigo_barra =  $_POST['codigo_barra'];
                 $this->_model->id_marca = $_POST['id_marca'];
@@ -53,10 +41,7 @@ class productoController extends Controller
 
                 $this->_model->insertar();
                 $this->redireccionar('producto');
-            }else{
-                echo "<script>alert('Producto Existente')</script>";
-                
-            }
+            
             
         }
         
@@ -106,6 +91,9 @@ class productoController extends Controller
     public function buscador(){
         if(isset($_POST['codigo_barra'])){
             $busqueda = $this->_model->buscar_codigo_barra(trim($_POST['codigo_barra']));
+        }
+        else{
+            $busqueda = $this->_model->selecciona();
         }
         echo json_encode($busqueda);
     }

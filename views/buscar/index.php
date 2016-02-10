@@ -4,12 +4,12 @@
     <table id="table" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Codigo</th>
+                <th >Cod</th>
                 <th>Cod. Barra</th>
                 <th>Marca</th>
-                <th>Tipo</th>
-                <th>Descripcion</th>
-                <th>Fraccion</th>
+                <th style="width: 150px;">Tipo</th>
+                <th style="width: 200px;">Descripcion</th>
+                <th style="width: 15px;" >Fraccion</th>
                 <th>P. Compra</th>
                 <th>P. Venta</th>
             </tr>
@@ -29,8 +29,10 @@
                         
                         ?></td> 
                 <td><?php echo $this->datos[$i]['fraccion'];//nombre ?></td> 
-                <td><?php echo $this->datos[$i]['ult_precio_compra'];//nombre ?></td> 
-                <td style="color: black;font-weight: bold;" ><?php echo $this->datos[$i]['ult_precio_venta'];//nombre ?></td> 
+                <?php $precio_compra=  number_format(round($this->datos[$i]['ult_precio_compra']*100)/100, 2, '.', '');?>
+                <td><?php echo $precio_compra;//nombre ?></td> 
+                <?php $precio_venta=  number_format(round($this->datos[$i]['ult_precio_venta']*100)/100, 2, '.', '');?>
+                <td style="color: black;font-weight: bold;" ><?php echo $precio_venta;//nombre ?></td> 
                 
             </tr>
         <?php } ?>

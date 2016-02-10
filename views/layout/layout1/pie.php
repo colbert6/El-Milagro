@@ -2,13 +2,6 @@
     </div>
     </div>
     <div id="jsfoot">
-        <?php if(isset($_params['js_foot']) && count($_params['js_foot'])): ?>
-        <?php for($i=0; $i < count($_params['js_foot']); $i++): ?>
-        
-        <script src="<?php echo $_params['js_foot'][$i] ?>" type="text/javascript"></script>
-        
-        <?php endfor; ?>
-        <?php endif; ?>
     </div>
     <div id="jsfoot1">
         

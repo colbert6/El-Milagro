@@ -24,6 +24,13 @@ class proveedorModel extends Model
         $datos = $this->_db->query("select * from proveedor where id_proveedor=".$this->id_proveedor);
         return $datos->fetchall();
     }
+    
+    public function buscar_ruc($ruc)
+    {
+        $datos = $this->_db->query("select * from proveedor where ruc='".$ruc."'");
+        return $datos->fetchall();
+    }
+    
     public function insertar()
     {
         $this->_db->prepare("INSERT INTO proveedor (razon_social,ruc,direccion,telefono,estado) "
