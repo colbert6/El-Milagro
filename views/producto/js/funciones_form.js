@@ -26,17 +26,15 @@ $(function() {
     });
     
     $( "#save" ).click(function(){
-         if( $("#codigo_barra").val()!='' && $("#codigo_barra").val().length!=13){
+         if( $("#codigo_barra").val()!='' && ($("#codigo_barra").val().length!=13 && $("#codigo_barra").val().length!=12 && $("#codigo_barra").val().length!=8 )){
                 return false;
         }
         
         bval = true;  
         bval = bval && $("#id_marca").required();
         bval = bval && $("#id_tipo_producto").required();
-        bval = bval && $("#descripcion").required();
         if (bval) 
-        {   
-            
+        {              
         
             $("#frm").submit();
         }
@@ -61,7 +59,7 @@ $(function() {
     
     $("#codigo_barra").blur(function(){
         
-        if($(this).val()!='' && $(this).val().length==13){
+        if($(this).val()!='' && ($(this).val().length==13 || $(this).val().length==12 || $(this).val().length==8)){
             $.post(url+'producto/buscador','codigo_barra='+$(this).val(),function(datos){
                 if(datos.length>0 ){
                     if($("#id_producto").val()==datos[0].id_producto){   
@@ -75,7 +73,18 @@ $(function() {
             },'json');
         }
     });
-    
-    
+    /*
+     * Para obtener digito de control
+    function ean13_checksum(message) {
+    var checksum = 0;
+    message = message.split('').reverse();
+    for(var pos in message){
+        checksum += message[pos] * (3 - 2 * (pos % 2));
+    }
+    return ((10 - (checksum % 10 )) % 10);
+    }
+    // Valor de prueba (sin dígito de control)
+    var ean = '123456789041';
+    console.log(ean13_checksum(ean));*/
     
 });

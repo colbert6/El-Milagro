@@ -21,7 +21,7 @@
                 <td><?php echo $this->datos[$i]['marca'];//nombre ?></td> 
                 <td><?php echo $this->datos[$i]['tipo_producto'];//nombre ?></td> 
                 <td><?php if(trim($this->datos[$i]['contenido'])<>""){
-                           echo $this->datos[$i]['descripcion']." x".trim($this->datos[$i]['contenido']);//nombre 
+                           echo $this->datos[$i]['descripcion']." ".trim($this->datos[$i]['contenido']);//nombre 
                           }else{
                            echo $this->datos[$i]['descripcion'];   
                           }

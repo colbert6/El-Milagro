@@ -22,7 +22,13 @@ class marcaController extends Controller
     public function nuevo() {
         if ($_POST['guardar'] == 1) {
             
-            $this->_model->descripcion = ucwords(strtolower( $_POST['descripcion']));
+            $this->_model->descripcion =  $_POST['descripcion'];
+            if($_POST['abreviatura']!=''){
+              $this->_model->abreviatura =  $_POST['abreviatura'];
+            }else{
+              $this->_model->abreviatura =  $_POST['descripcion'];  
+            }
+            
             $this->_model->insertar();
             $this->redireccionar('marca');
         }
@@ -38,7 +44,12 @@ class marcaController extends Controller
 
         if ($_POST['guardar'] == 1) {
             $this->_model->id_marca = $_POST['id_marca'];
-            $this->_model->descripcion = ucwords(strtolower( $_POST['descripcion']));
+            $this->_model->descripcion =  $_POST['descripcion'];
+            if($_POST['abreviatura']!=''){
+              $this->_model->abreviatura =  $_POST['abreviatura'];
+            }else{
+              $this->_model->abreviatura =  $_POST['descripcion'];  
+            }
             $this->_model->actualizar();
             $this->redireccionar('marca');
         }

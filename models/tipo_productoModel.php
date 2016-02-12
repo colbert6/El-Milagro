@@ -4,6 +4,7 @@ class tipo_productoModel extends Model
 {
     public $id_tipo_producto;
     public $descripcion;
+    public $abreviado;
     
     public function __construct() {
         parent::__construct();
@@ -15,6 +16,13 @@ class tipo_productoModel extends Model
         $datos = $this->_db->query("select * from tipo_producto");
         return $datos->fetchall();
     }
+    
+    public function selecciona_prod()
+    {
+        $datos = $this->_db->query("select * from tipo_producto order by abreviado");
+        return $datos->fetchall();
+    }
+    
     public function selecciona_id()
     {
         $datos = $this->_db->query("select * from tipo_producto where id_tipo_producto=".$this->id_tipo_producto);
@@ -22,10 +30,11 @@ class tipo_productoModel extends Model
     }
     public function insertar()
     {
-        $this->_db->prepare("INSERT INTO tipo_producto (descripcion) VALUES ( :descripcion)")
+        $this->_db->prepare("INSERT INTO tipo_producto (descripcion,abreviado) VALUES ( :descripcion,:abreviado)")
                 ->execute(
                         array(
-                           ':descripcion' => $this->descripcion
+                           ':descripcion' => $this->descripcion,
+                           ':abreviado' => $this->abreviado
                         ));
     }
     
@@ -34,11 +43,12 @@ class tipo_productoModel extends Model
         $id = (int) $this->id_tipo_producto;
         $descrip=  $this->descripcion;
         
-        $this->_db->prepare("UPDATE tipo_producto SET descripcion = :descripcion WHERE id_tipo_producto = :id")
+        $this->_db->prepare("UPDATE tipo_producto SET descripcion = :descripcion,abreviado=:abreviado WHERE id_tipo_producto = :id")
                 ->execute(
                         array(
                            ':id' => $id,
-                           ':descripcion' => $descrip
+                           ':descripcion' => $descrip,
+                           ':abreviado' => $this->abreviado
                         ));
     }
     

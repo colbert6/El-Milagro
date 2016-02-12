@@ -22,6 +22,14 @@
                 maxlength="30"  value="<?php if(isset ($this->datos[0]['descripcion']))echo $this->datos[0]['descripcion']?>">
             </div>
         </div>
+        
+        <div class="form-group">
+            <label class="control-label col-sm-6" >Abreviatura:</label>
+            <div class="col-sm-6">
+                <input name="abreviado" id="abreviado" class="form-control"  placeholder="Abreviado" autofocus
+                maxlength="30"  value="<?php if(isset ($this->datos[0]['abreviado']))echo $this->datos[0]['abreviado']?>">
+            </div>
+        </div>
        
         <div class="form-group" style="margin-top: 8%"> 
             <div class="col-sm-offset-3 col-sm-8">

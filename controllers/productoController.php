@@ -32,8 +32,8 @@ class productoController extends Controller
                 $this->_model->id_marca = $_POST['id_marca'];
                 $this->_model->id_tipo_producto = $_POST['id_tipo_producto'];
                 $this->_model->presentacion = ucwords(strtolower( $_POST['presentacion']));
-                $this->_model->descripcion = ucwords(strtolower( $_POST['descripcion']));
-                $this->_model->contenido = ucwords(strtolower( $_POST['contenido']));
+                $this->_model->descripcion =  $_POST['descripcion'];
+                $this->_model->contenido =  $_POST['contenido'];
                 $this->_model->fraccion = $_POST['fraccion'];
                 $this->_model->ult_precio_compra = $_POST['ult_precio_compra'];
                 $this->_model->ult_precio_venta = $_POST['ult_precio_venta'];
@@ -45,10 +45,9 @@ class productoController extends Controller
             
         }
         
-        $this->_vista->marca = $this->_marca->selecciona();
-        $this->_vista->tipo_producto = $this->_tipo_producto->selecciona();
-        
-        
+        $this->_vista->marca = $this->_marca->selecciona_prod();
+        $this->_vista->tipo_producto = $this->_tipo_producto->selecciona_prod();
+                
         $this->_vista->titulo = 'Registrar Producto';
         $this->_vista->action = BASE_URL . 'producto/nuevo';
         $this->_vista->setJs_(array('funciones_form'));
@@ -65,8 +64,8 @@ class productoController extends Controller
             $this->_model->id_marca = $_POST['id_marca'];
             $this->_model->id_tipo_producto = $_POST['id_tipo_producto'];
             $this->_model->presentacion = ucwords(strtolower( $_POST['presentacion']));
-            $this->_model->descripcion = ucwords(strtolower( $_POST['descripcion']));
-            $this->_model->contenido = ucwords(strtolower( $_POST['contenido']));
+            $this->_model->descripcion = $_POST['descripcion'];
+            $this->_model->contenido = $_POST['contenido'];
             $this->_model->fraccion = $_POST['fraccion'];
             $this->_model->ult_precio_compra = $_POST['ult_precio_compra'];
             $this->_model->ult_precio_venta = $_POST['ult_precio_venta'];
@@ -80,8 +79,7 @@ class productoController extends Controller
         
          $this->_vista->marca = $this->_marca->selecciona();
         $this->_vista->tipo_producto = $this->_tipo_producto->selecciona();
-        
-        
+                
         $this->_vista->titulo = 'Actualizar producto';
         $this->_vista->action = BASE_URL . 'producto/editar/'.$id;
         $this->_vista->setJs_(array('funciones_form'));

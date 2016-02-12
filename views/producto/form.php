@@ -1,6 +1,6 @@
 <?php 
 
-  $presentacion = array('Unidad','Caja','Paquete');
+  $presentacion = array('Unidad','Estuche','Pack','Caja','Paquete','Tubo','Pote','Frasco','Sachet','Tira');
 ?>
 
 <div class="navbar-inner">
@@ -33,7 +33,7 @@
             <div class="col-md-4" style="padding-right: 0px">
                 <div class="form-group"  style="margin: 5px auto 5px auto">
                     <label class="col-md-4 control-label" > *Marca:</label>
-                    <div class="col-md-7">
+                    <div class="col-md-7" style="padding-right: 0px;">
                         <select class="form-control" name='id_marca' id='id_marca' placeholder="">
                             <option value='' ></option>
                             <?php for($i=0;$i<count($this->marca);$i++){ //Aca va la lista de los modulos padres ?> 
@@ -51,7 +51,7 @@
             <div class="col-md-4" style="padding-right: 0px;padding-left: 0px">
                 <div class="form-group"  style="margin: 5px auto 5px auto">
                     <label class="col-md-4 control-label" > *Tipo:</label>
-                    <div class="col-md-7">
+                    <div class="col-md-7" style="padding-right: 0px;padding-left: 0px">
                         <select class="form-control" name='id_tipo_producto' id='id_tipo_producto' placeholder="">
                             <option value='' ></option>
                             <?php for($i=0;$i<count($this->tipo_producto);$i++){ //Aca va la lista de los modulos padres ?> 
@@ -90,7 +90,7 @@
         <div class="row"  style="border-bottom: solid 1px #D8D8D8;margin: 0px 0px 0px 0px;">
             <div class="col-md-7">
                 <div class="form-group"  style="margin: 5px auto 5px auto">
-                    <label class="col-md-4 control-label" >*Descripcion:</label>
+                    <label class="col-md-4 control-label" >Descripcion:</label>
                     <div class="col-md-8">
                         <input name="descripcion" id="descripcion" class="form-control"  placeholder="Descripcion" 
                         maxlength="25"  value="<?php if(isset ($this->datos[0]['descripcion']))echo $this->datos[0]['descripcion']?>">
@@ -146,7 +146,7 @@
                     <label class="col-md-4 control-label" >Utilidad:</label>
                     <div class="col-md-8">
                         <input name="utilidad" id="utilidad" class="form-control"  placeholder="Utilidad" onkeypress="return soloNumeros(event)"
-                        maxlength="4"  value="<?php if(isset ($this->datos[0]['utilidad']))echo $this->datos[0]['utilidad']?>">
+                        maxlength="4"  value="<?php if(isset ($this->datos[0]['utilidad'])){echo $this->datos[0]['utilidad'];}else{echo '15';}?>">
                     </div>
                 </div>
             </div>

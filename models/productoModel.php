@@ -19,10 +19,17 @@ class productoModel extends Model
         parent::__construct();
     }
     
+    public function selecciona_completo()
+    {
+        $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
+                                . " from producto as p , marca as m, tipo_producto as tp "
+                                . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
+        return $datos->fetchall();
+    }
     
     public function selecciona()
     {
-        $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
+        $datos = $this->_db->query("select p.*,m.abreviatura as marca , tp.abreviado as tipo_producto "
                                 . " from producto as p , marca as m, tipo_producto as tp "
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
         return $datos->fetchall();
@@ -40,11 +47,11 @@ class productoModel extends Model
             
                 ( codigo_barra, id_marca, id_tipo_producto, descripcion,
                 presentacion, contenido,  fraccion, ult_precio_compra,
-                ult_precio_venta,utilidad,estado)
+                ult_precio_venta,utilidad,estado,ult_modificacion)
                 
                 VALUES ( :codigo_barra, :id_marca, :id_tipo_producto, :descripcion,
                 :presentacion, :contenido, :fraccion, :ult_precio_compra,
-                :ult_precio_venta,:utilidad,:estado) ")
+                :ult_precio_venta,:utilidad,:estado,NOW()) ")
                 ->execute(
                         array(
                             ':codigo_barra' => $this->codigo_barra,

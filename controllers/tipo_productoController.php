@@ -23,6 +23,11 @@ class tipo_productoController extends Controller
         if ($_POST['guardar'] == 1) {
             
             $this->_model->descripcion = ucwords(strtolower( $_POST['descripcion']));
+            if($_POST['abreviado']!=''){
+              $this->_model->abreviado =  $_POST['abreviado'];
+            }else{
+              $this->_model->abreviado =  $_POST['descripcion'];  
+            }
             $this->_model->insertar();
             $this->redireccionar('tipo_producto');
         }
@@ -39,6 +44,11 @@ class tipo_productoController extends Controller
         if ($_POST['guardar'] == 1) {
             $this->_model->id_tipo_producto = $_POST['id_tipo_producto'];
             $this->_model->descripcion = ucwords(strtolower( $_POST['descripcion']));
+            if($_POST['abreviado']!=''){
+              $this->_model->abreviado =  $_POST['abreviado'];
+            }else{
+              $this->_model->abreviado =  $_POST['descripcion'];  
+            }
             $this->_model->actualizar();
             $this->redireccionar('tipo_producto');
         }
