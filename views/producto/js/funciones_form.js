@@ -27,7 +27,13 @@ $(function() {
     
     $( "#save" ).click(function(){
          if( $("#codigo_barra").val()!='' && ($("#codigo_barra").val().length!=13 && $("#codigo_barra").val().length!=12 && $("#codigo_barra").val().length!=8 )){
-                return false;
+           $("#codigo_barra").css('border','solid 1px red');
+            $("#codigo_barra").html('<label class="lbl_msg">Debes llenar todos los campos necesarios</label>');
+            $("#codigo_barra").focus();    
+            return false;
+        } else {
+            $("#codigo_barra").css('border','solid 1px #ccc');
+            $('#msg').html('');
         }
         
         bval = true;  
