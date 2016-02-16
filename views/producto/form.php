@@ -93,7 +93,7 @@
                     <label class="col-md-4 control-label" >Descripcion:</label>
                     <div class="col-md-8">
                         <input name="descripcion" id="descripcion" class="form-control"  placeholder="Descripcion" 
-                        maxlength="25"  value="<?php if(isset ($this->datos[0]['descripcion']))echo $this->datos[0]['descripcion']?>">
+                        maxlength="30"  value="<?php if(isset ($this->datos[0]['descripcion']))echo $this->datos[0]['descripcion']?>">
                     </div>
                 </div>
             </div>

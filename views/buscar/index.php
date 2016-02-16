@@ -4,15 +4,17 @@
     <table id="table" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th >Cod</th>
+                <th style="width: 15px;">Cod</th>
                 <th>Cod. Barra</th>
-                <th style="width: 120px;">Marca</th>
-                <th style="width: 150px;">Tipo</th>
-                <th style="width: 200px;">Descripcion</th>
-                <th style="width: 15px;" >Fraccion</th>
+                <th>Marca Descripcion</th>
+                <th>Tipo de Producto</th>
+                <th style="width: 100px;">Marca</th>
+                <th style="width: 100px;">Tipo</th>
+                <th style="width: 240px;">Descripcion</th>
+                <th style="width: 15px;" >Fr.</th>
                 
-                <th>P. Compra</th>
-                <th>P. Venta</th>
+                <th style="width: 15px;">P. Compra</th>
+                <th style="width: 15px;">P. Venta</th>
             </tr>
         </thead>
          <tbody>
@@ -20,6 +22,8 @@
             <tr>
                 <td><?php echo "0000".((int)$this->datos[$i]['id_producto']);//id ?></td>
                 <td><?php echo $this->datos[$i]['codigo_barra'];//barra ?></td>
+                <td><?php echo $this->datos[$i]['marca_desc'];//barra ?></td>
+                <td><?php echo $this->datos[$i]['tipo_producto_desc'];//barra ?></td>
                 <td><?php echo $this->datos[$i]['marca'];// ?></td> 
                 <td><?php echo $this->datos[$i]['tipo_producto'];// ?></td> 
                 <td><?php if(trim($this->datos[$i]['contenido'])<>""){

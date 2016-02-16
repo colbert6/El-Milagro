@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'http://localhost/El-Milagro/');
+define('BASE_URL', '/El-Milagro/');
 define('DEFAULT_CONTROLLER', 'index');
 define('DEFAULT_LAYOUT', 'layout1');
 

@@ -34,8 +34,8 @@
                 
     </head>
     <body>
-        <div class="navbar navbar-fixed-top bs-docs-nav" role="banner" id="headerSection">
-            <div class="conjtainer">
+        <div class="navbar navbar-fixed-top bs-docs-nav" role="banner" id="headerSection" style="min-height: 10px;">
+  <?php /*          <div class="conjtainer">
                 <div class="navbar-header">
 		    <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 			<span>El Milagro</span>
@@ -55,7 +55,9 @@
 		  <ul class="nav navbar-nav pull-right">
                   </ul>    
               </nav>
-            </div>	
+            </div>
+   
+   */?>	
         </div>
         <div class="content" id="cuerpo">
             <div class="sidebar">

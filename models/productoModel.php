@@ -29,7 +29,7 @@ class productoModel extends Model
     
     public function selecciona()
     {
-        $datos = $this->_db->query("select p.*,m.abreviatura as marca , tp.abreviado as tipo_producto "
+        $datos = $this->_db->query("select p.*,m.descripcion as marca_desc ,m.abreviatura as marca , tp.abreviado as tipo_producto,tp.descripcion as tipo_producto_desc "
                                 . " from producto as p , marca as m, tipo_producto as tp "
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
         return $datos->fetchall();

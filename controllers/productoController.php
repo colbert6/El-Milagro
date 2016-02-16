@@ -77,8 +77,8 @@ class productoController extends Controller
         $this->_model->id_producto = $this->filtrarInt((int)$id);
         $this->_vista->datos = $this->_model->selecciona_id();
         
-         $this->_vista->marca = $this->_marca->selecciona();
-        $this->_vista->tipo_producto = $this->_tipo_producto->selecciona();
+         $this->_vista->marca = $this->_marca->selecciona_prod();
+        $this->_vista->tipo_producto = $this->_tipo_producto->selecciona_prod();
                 
         $this->_vista->titulo = 'Actualizar producto';
         $this->_vista->action = BASE_URL . 'producto/editar/'.$id;

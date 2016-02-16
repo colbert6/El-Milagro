@@ -1,6 +1,6 @@
    $(document).ready(function() {
                 $('#table').dataTable({
-                    "scrollY":        "1000px",
+                    "scrollY":        "400px",
                     "scrollCollapse": true,
                     "paging":         false,
                     'sPaginationType': 'full_numbers',
@@ -22,6 +22,21 @@
                             'sSortDescending': ': Activar para ordenar la columna de manera descendente'
                         }
                     },
+                    "columnDefs": [
+                    {
+                        "targets": [ 1 ],
+                        "visible": false
+                    },
+                    {
+                        "targets": [ 2 ],
+                        "visible": false
+                    },
+                    {
+                        "targets": [ 3 ],
+                        "visible": false
+                    }
+                    ],
+                    
                     'aaSorting': [[ 2, 'asc' ]],//ordenar
                     'iDisplayLength': 15,
                     'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']]
@@ -30,3 +45,7 @@
                 });
                 $('div.dataTables_filter input').focus()
             }); 
+            
+           
+        
+   
