@@ -11,8 +11,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-            <!-- Copyright info -->
-            <p class="copy">Copyright &copy; 2015 | <a href="javascript:">Olympo Ginevra & Company Fitness</a> </p>
+            <!-- Copyright info  Colbert Calampa Tantachuco-->
+            <p class="copy">Copyright &copy; 2016 | <a href="javascript:">El Milagro</a> </p>
       </div>
     </div>
   </div>

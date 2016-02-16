@@ -4,17 +4,16 @@
     <table id="table" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th style="width: 15px;">Cod</th>
+                <th style="width: 25px;">Cod</th>
                 <th>Cod. Barra</th>
                 <th>Marca Descripcion</th>
                 <th>Tipo de Producto</th>
                 <th style="width: 100px;">Marca</th>
                 <th style="width: 100px;">Tipo</th>
-                <th style="width: 240px;">Descripcion</th>
-                <th style="width: 15px;" >Fr.</th>
-                
-                <th style="width: 15px;">P. Compra</th>
+                <th style="width: 350px;">Descripcion</th>
+                <th style="width: 15px;" >Fraccion.</th>
                 <th style="width: 15px;">P. Venta</th>
+                <th style="width: 15px;">P. Unitario</th>
             </tr>
         </thead>
          <tbody>
@@ -34,10 +33,10 @@
                         
                         ?></td> 
                 <td><?php echo $this->datos[$i]['fraccion'];// ?></td> 
-                <?php $precio_compra=  number_format(round($this->datos[$i]['ult_precio_compra']*100)/100, 2, '.', '');?>
-                <td><?php echo $precio_compra;//nombre ?></td> 
-                <?php $precio_venta=  number_format(round($this->datos[$i]['ult_precio_venta']*100)/100, 2, '.', '');?>
-                <td style="color: black;font-weight: bold;" ><?php echo $precio_venta;//nombre ?></td> 
+                <?php $precio_venta=  number_format(round($this->datos[$i]['ult_precio_venta']*10)/10, 2, '.', '');?>
+                <td style="color: black;font-weight: bold;"><?php echo $precio_venta;//nombre ?></td> 
+                <?php $precio_venta_uni= number_format(round(($precio_venta/(int)$this->datos[$i]['fraccion'])*10)/10, 2, '.', '');?>
+                <td style="color: blue;font-weight: bold;" ><?php echo $precio_venta_uni;//nombre ?></td> 
                 
             </tr>
         <?php } ?>
