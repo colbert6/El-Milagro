@@ -146,7 +146,7 @@
                     <label class="col-md-4 control-label" >Utilidad:</label>
                     <div class="col-md-8">
                         <input name="utilidad" id="utilidad" class="form-control"  placeholder="Utilidad" onkeypress="return dosDecimales(event)"
-                        maxlength="4"  value="<?php if(isset ($this->datos[0]['utilidad'])){echo $this->datos[0]['utilidad'];}else{echo '15';}?>">
+                        maxlength="10"  value="<?php if(isset ($this->datos[0]['utilidad'])){echo $this->datos[0]['utilidad'];}else{echo '15';}?>">
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@
                 <th>Descripcion</th>
                 <th>Fraccion</th>
                 <th>P. Compra</th>
+                <th>Utilidad</th>
                 <th>P. Venta</th>
                 <th>Acciones</th>
             </tr>
@@ -29,6 +30,7 @@
                         ?></td> 
                 <td><?php echo $this->datos[$i]['fraccion'];//nombre ?></td> 
                 <td><?php echo $this->datos[$i]['ult_precio_compra'];//nombre ?></td> 
+                <td><?php echo $this->datos[$i]['utilidad'];//nombre ?></td> 
                 <td><?php echo $this->datos[$i]['ult_precio_venta'];//nombre ?></td> 
                 <td>
                     <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>producto/editar/<?php echo $this->datos[$i]['id_producto'] ?>')" class="btn btn-success btn-minier"><i class="icon-pencil icon-white"></i></a>

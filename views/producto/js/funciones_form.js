@@ -49,7 +49,7 @@ $(function() {
     
     function Calc_p_venta() {
         var utilidad = $("#utilidad").val();
-        utilidad = parseInt(utilidad);
+        utilidad = parseFloat(utilidad);
         if (isNaN(utilidad)) {
             utilidad = 0;
         }
