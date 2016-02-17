@@ -24,6 +24,10 @@
                     },
                     "columnDefs": [
                     {
+                        "targets": [ 0 ],
+                        "searchable": false
+                    },
+                    {
                         "targets": [ 1 ],
                         "visible": false
                     },
@@ -34,8 +38,21 @@
                     {
                         "targets": [ 3 ],
                         "visible": false
+                    },
+                    {
+                        "targets": [ 7 ],
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 8 ],
+                        "searchable": false
+                    },                    
+                    {
+                        "targets": [ 9 ],
+                        "searchable": false
                     }
                     ],
+                    
                     
                     'aaSorting': [[ 2, 'asc' ]],//ordenar
                     'iDisplayLength': 15,

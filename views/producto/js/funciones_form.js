@@ -26,7 +26,7 @@ $(function() {
     });
     
     $( "#save" ).click(function(){
-         if( $("#codigo_barra").val()!='' && ($("#codigo_barra").val().length!=13 && $("#codigo_barra").val().length!=12 && $("#codigo_barra").val().length!=8 )){
+         if( $("#codigo_barra").val()!='' && ($("#codigo_barra").val().length!=13 && $("#codigo_barra").val().length!=12 && $("#codigo_barra").val().length!=8 && $("#codigo_barra").val().length!=7)){
            $("#codigo_barra").css('border','solid 1px red');
             $("#codigo_barra").html('<label class="lbl_msg">Debes llenar todos los campos necesarios</label>');
             $("#codigo_barra").focus();    
@@ -65,7 +65,7 @@ $(function() {
     
     $("#codigo_barra").blur(function(){
         
-        if($(this).val()!='' && ($(this).val().length==13 || $(this).val().length==12 || $(this).val().length==8)){
+        if($(this).val()!='' && ($(this).val().length==13 || $(this).val().length==12 || $(this).val().length==8 || $(this).val().length==7)){
             $.post(url+'producto/buscador','codigo_barra='+$(this).val(),function(datos){
                 if(datos.length>0 ){
                     if($("#id_producto").val()==datos[0].id_producto){   
