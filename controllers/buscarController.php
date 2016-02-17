@@ -16,7 +16,7 @@ class buscarController extends Controller
         $this->_vista->datos = $this->_model->selecciona();
         $this->_vista->setCss_(array('jquery.dataTables'));
         $this->_vista->setJs(array('jquery.dataTables.min'));
-        $this->_vista->setJs_(array('run_table_buscar'));
+        $this->_vista->setJs_(array('run_table_buscar','funcion_buscar'));
         
         $this->_vista->renderizar('index');
     }
