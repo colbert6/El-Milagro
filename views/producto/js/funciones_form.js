@@ -17,6 +17,11 @@ $(function() {
     $("#utilidad").keyup(function() {
         Calc_p_venta();
     });
+    
+    $("#ult_precio_venta").keyup(function() {
+        Calc_utilidad();
+    });
+    
     $("#ult_precio_venta").blur(function(){
         var precio = parseFloat($(this).val());
         if (isNaN(precio)) {
@@ -61,6 +66,25 @@ $(function() {
         var venta;
         venta = costo * ((utilidad/100)+1);
         $("#ult_precio_venta").val(venta.toFixed(2));
+    }
+    
+    function Calc_utilidad() {
+        var costo = $("#ult_precio_compra").val();
+        costo = parseFloat(costo);
+        if (isNaN(costo)) {
+            costo = 0;
+        }
+        if(costo>=0.01){
+            var venta = $("#ult_precio_venta").val();
+            venta = parseFloat(venta);
+            if (isNaN(venta)) {
+                venta = 0;
+            }
+
+            var utilidad;
+            utilidad = 100*((venta-costo)/costo);
+            $("#utilidad").val(utilidad.toFixed(2));
+        }
     }
     
     $("#codigo_barra").blur(function(){

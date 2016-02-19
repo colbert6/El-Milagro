@@ -26,6 +26,14 @@ class productoModel extends Model
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
         return $datos->fetchall();
     }
+    public function selecciona_reporte()
+    {
+        $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
+                                . " from producto as p , marca as m, tipo_producto as tp "
+                                . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto "
+                                . " order by m.descripcion asc,tp.descripcion asc ");
+        return $datos->fetchall();
+    }
     
     public function selecciona()
     {

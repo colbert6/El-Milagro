@@ -23,7 +23,7 @@ abstract class Controller
             throw new Exception('Error de modelo');
         }
     }
-    protected function getLibrary($libreria)
+    protected function get_Libreria($libreria)
     {
         $rutaLibreria = ROOT . 'libs' . DS . $libreria . '.php';
         

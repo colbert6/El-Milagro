@@ -137,7 +137,7 @@
                     <label class="col-md-4 control-label" >Costo:</label>
                     <div class="col-md-8">
                         <input name="ult_precio_compra" id="ult_precio_compra" class="form-control"  placeholder="Compra" onkeypress="return dosDecimales(event,this)"
-                        maxlength="10"  value="<?php if(isset ($this->datos[0]['ult_precio_compra']))echo $this->datos[0]['ult_precio_compra']?>">
+                        maxlength="10"  value="<?php if(isset ($this->datos[0]['ult_precio_compra'])){echo $this->datos[0]['ult_precio_compra'];}else{echo "0.00";}?>">
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                 <div class="form-group"  style="margin: 5px auto 5px auto">
                     <label class="col-md-4 control-label" >Precio:</label>
                     <div class="col-md-8">
-                        <input name="ult_precio_venta" id="ult_precio_venta" class="form-control"  placeholder="Venta" readonly
+                        <input name="ult_precio_venta" id="ult_precio_venta" class="form-control"  placeholder="Venta" 
                         maxlength="10"  <?php if(isset ($this->datos[0]['ult_precio_venta'])){echo "value='".$this->datos[0]['ult_precio_venta']."'";}else{ echo "value='0.00'";}?>>
                     </div>
                 </div>
