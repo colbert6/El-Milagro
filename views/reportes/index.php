@@ -1,5 +1,5 @@
 <div class="navbar-inner text-center">
-<h3>Reportes de Aquinos Gráfica Industrial</h3>
+<h3>Reportes de Botica El Milagro</h3>
     <div id="grilla" class="grilla-min">
     <table class="table table-striped table-bordered table-hover">
         <thead>
