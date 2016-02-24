@@ -5,6 +5,7 @@
         <thead>
             <tr>
                 <th>Item</th>
+                <th>CodBarras</th>
                 <th>Marca</th>
                 <th>Tipo</th>
                 <th>Descripcion</th>
@@ -19,8 +20,9 @@
             <?php for ($i = 0; $i < count($this->datos); $i++) { ?>
             <tr>
                 <td><?php echo "0000".((int)$this->datos[$i]['id_producto']);//id ?></td>
-                <td><?php echo $this->datos[$i]['marca'];//nombre ?></td> 
-                <td><?php echo $this->datos[$i]['tipo_producto'];//nombre ?></td> 
+                <td><?php echo $this->datos[$i]['codigo_barra'];// ?></td> 
+                <td><?php echo $this->datos[$i]['marca'];// ?></td> 
+                <td><?php echo $this->datos[$i]['tipo_producto'];// ?></td> 
                 <td><?php if(trim($this->datos[$i]['contenido'])<>""){
                            echo $this->datos[$i]['descripcion']." ".trim($this->datos[$i]['contenido']);//nombre 
                           }else{

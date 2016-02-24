@@ -28,6 +28,11 @@ class tipo_productoModel extends Model
         $datos = $this->_db->query("select * from tipo_producto where id_tipo_producto=".$this->id_tipo_producto);
         return $datos->fetchall();
     }
+    public function seleccion_relacionados()
+    {
+        $datos = $this->_db->query("select DISTINCT t.* from tipo_producto as t, producto as p where t.id_tipo_producto=p.id_tipo_producto");
+        return $datos->fetchall();
+    }
     public function insertar()
     {
         $this->_db->prepare("INSERT INTO tipo_producto (descripcion,abreviado) VALUES ( :descripcion,:abreviado)")

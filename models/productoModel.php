@@ -26,12 +26,38 @@ class productoModel extends Model
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
         return $datos->fetchall();
     }
-    public function selecciona_reporte()
+    public function selecciona_reporte()//todos los productos
     {
         $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
                                 . " from producto as p , marca as m, tipo_producto as tp "
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto "
                                 . " order by m.descripcion asc,tp.descripcion asc ");
+        return $datos->fetchall();
+    }
+    public function selecciona_reporte_order_tipo()//todos los productos
+    {
+        $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
+                                . " from producto as p , marca as m, tipo_producto as tp "
+                                . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto "
+                                . " order by tp.descripcion asc,m.descripcion asc ");
+        return $datos->fetchall();
+    }
+    public function selecciona_reporte_filtro($m,$t)//todos los productos
+    {
+        $sql="";
+        $sql.=  "select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
+                . " from producto as p , marca as m, tipo_producto as tp "
+                . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ";
+        if($m!=''){
+            $sql.=  " and p.id_marca=".$m;
+        }
+        if($t!=''){
+            $sql.=  " and p.id_tipo_producto=".$t;
+        }
+        
+        $sql.= " order by m.descripcion asc,tp.descripcion asc ";
+        
+        $datos = $this->_db->query($sql);
         return $datos->fetchall();
     }
     

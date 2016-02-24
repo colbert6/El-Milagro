@@ -20,7 +20,8 @@ class productoController extends Controller
         $this->_vista->titulo = 'Lista de Productos';
         $this->_vista->datos = $this->_model->selecciona();
         $this->_vista->setCss(array('jquery.dataTables'));
-        $this->_vista->setJs(array('jquery.dataTables.min','run_table'));
+        $this->_vista->setJs(array('jquery.dataTables.min'));
+        $this->_vista->setJs_(array('run_table_producto'));
         $this->_vista->renderizar('index');
     }
     
