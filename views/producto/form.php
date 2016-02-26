@@ -93,7 +93,7 @@
                     <label class="col-md-4 control-label" >Descripcion:</label>
                     <div class="col-md-8">
                         <input name="descripcion" id="descripcion" class="form-control"  placeholder="Descripcion" 
-                        maxlength="30"  value="<?php if(isset ($this->datos[0]['descripcion']))echo $this->datos[0]['descripcion']?>">
+                        maxlength="35"  value="<?php if(isset ($this->datos[0]['descripcion']))echo $this->datos[0]['descripcion']?>">
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     <label class="col-md-4 control-label" >Contenido:</label>
                     <div class="col-md-8">
                         <input name="contenido" id="contenido" class="form-control"  placeholder="1gr - 1ml - 1lt - 1onz" 
-                        maxlength="30"  value="<?php if(isset ($this->datos[0]['contenido']))echo $this->datos[0]['contenido']?>">
+                        maxlength="10"  value="<?php if(isset ($this->datos[0]['contenido']))echo $this->datos[0]['contenido']?>">
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                 <div class="form-group"  style="margin: 5px auto 5px auto">
                     <label class="col-md-4 control-label" >Precio:</label>
                     <div class="col-md-8">
-                        <input name="ult_precio_venta" id="ult_precio_venta" class="form-control"  placeholder="Venta" 
+                        <input name="ult_precio_venta" id="ult_precio_venta" class="form-control"  placeholder="Venta" onkeypress="return dosDecimales(event,this)"
                         maxlength="10"  <?php if(isset ($this->datos[0]['ult_precio_venta'])){echo "value='".$this->datos[0]['ult_precio_venta']."'";}else{ echo "value='0.00'";}?>>
                     </div>
                 </div>
