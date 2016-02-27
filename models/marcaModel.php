@@ -18,7 +18,7 @@ class marcaModel extends Model
     }
     public function selecciona_prod()
     {
-        $datos = $this->_db->query("select * from marca order by abreviatura");
+        $datos = $this->_db->query("select * from marca order by descripcion");
         return $datos->fetchall();
     }
     public function selecciona_id()

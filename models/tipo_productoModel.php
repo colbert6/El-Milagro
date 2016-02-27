@@ -19,7 +19,7 @@ class tipo_productoModel extends Model
     
     public function selecciona_prod()
     {
-        $datos = $this->_db->query("select * from tipo_producto order by abreviado");
+        $datos = $this->_db->query("select * from tipo_producto order by descripcion");
         return $datos->fetchall();
     }
     
