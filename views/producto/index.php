@@ -162,7 +162,7 @@
                             
                             <div class="form-group" style="margin-top: 8%"> 
                                 <div class="col-sm-offset-3 col-sm-8">
-                                    <button type="button" class="btn btn-primary" id="save"> Guardar</button>
+                                    <button type="button" class="btn btn-success" id="save"> Actualizar Precios</button>
                                 </div>
                             </div>
 
