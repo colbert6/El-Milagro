@@ -17,7 +17,7 @@
                 <td><?php echo $this->datos[$i]['descripcion'];//nombre ?></td> 
                 <td><?php echo $this->datos[$i]['abreviado'];//nombre ?></td> 
                 <td>
-                    <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>tipo_producto/editar/<?php echo $this->datos[$i]['id_tipo_producto'] ?>')" class="btn btn-success btn-minier"><i class="icon-pencil icon-white"></i></a>
+                    <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>tipo_producto/editar/<?php echo $this->datos[$i]['id_tipo_producto'] ?>')" class="btn btn-success btn-minier" title="Editar Tipo producto"><i class="icon-pencil icon-white"></i></a>
                     
                 </td>
             </tr>

@@ -17,7 +17,7 @@
                 <td><?php echo $this->datos[$i]['descripcion'];//nombre ?></td> 
                 <td><?php echo $this->datos[$i]['abreviatura'];//nombre ?></td> 
                 <td>
-                    <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>marca/editar/<?php echo $this->datos[$i]['id_marca'] ?>')" class="btn btn-success btn-minier"><i class="icon-pencil icon-white"></i></a>
+                    <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>marca/editar/<?php echo $this->datos[$i]['id_marca'] ?>')" class="btn btn-success btn-minier" title="Editar Marca"><i class="icon-pencil icon-white"></i></a>
                     
                 </td>
             </tr>

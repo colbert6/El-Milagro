@@ -90,11 +90,21 @@ class productoController extends Controller
     public function buscador(){
         if(isset($_POST['codigo_barra'])){
             $busqueda = $this->_model->buscar_codigo_barra(trim($_POST['codigo_barra']));
+        }else if(isset($_POST['id_producto'])){
+            $busqueda = $this->_model->selecciona_id(trim($_POST['id_producto']));
         }
         else{
             $busqueda = $this->_model->selecciona();
         }
         echo json_encode($busqueda);
+    }
+    
+    public function act_precios(){
+        $this->_model->id_producto = $_POST['id'];
+        $this->_model->ult_precio_compra = $_POST['p_compra'];
+        $this->_model->ult_precio_venta = $_POST['p_venta'];
+        $this->_model->utilidad = $_POST['uti'];
+        $this->_model->act_precios(); 
     }
 }
 ?>

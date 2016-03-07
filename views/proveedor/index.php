@@ -21,7 +21,7 @@
                 <td><?php echo $this->datos[$i]['direccion'];//nombre ?></td> 
                 <td><?php echo $this->datos[$i]['telefono'];//nombre ?></td> 
                 <td>
-                    <a href="javascript:void(0)" onclick="editar('<?php echo BASE_URL?>proveedor/editar/<?php echo $this->datos[$i]['id_proveedor'] ?>')" class="btn btn-success btn-minier"><i class="icon-pencil icon-white"></i></a>
+                    <a href="javascript:void(0)" title="Editar Proveedor" onclick="editar('<?php echo BASE_URL?>proveedor/editar/<?php echo $this->datos[$i]['id_proveedor'] ?>')" class="btn btn-success btn-minier"><i class="icon-pencil icon-white"></i></a>
                     
                 </td>
             </tr>

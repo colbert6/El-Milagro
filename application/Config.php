@@ -5,7 +5,7 @@ define('DEFAULT_CONTROLLER', 'index');
 define('DEFAULT_LAYOUT', 'layout1');
 
 define('APP_NAME', 'TREBLOC_elmilagro');
-define('APP_SLOGAN', 'El milagro');
+define('APP_SLOGAN', 'El Milagro');
 define('APP_COMPANY', 'colber.mbct@gmail.com');
 
 define('DB_HOST', 'localhost');

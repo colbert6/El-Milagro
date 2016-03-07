@@ -145,7 +145,7 @@
                 <div class="form-group"  style="margin: 5px auto 5px auto">
                     <label class="col-md-4 control-label" >Utilidad:</label>
                     <div class="col-md-8">
-                        <input name="utilidad" id="utilidad" class="form-control"  placeholder="Utilidad" onkeypress="return dosDecimales(event)"
+                        <input name="utilidad" id="utilidad" class="form-control"  placeholder="Utilidad" onkeypress="return dosDecimales(event,this)"
                         maxlength="10"  value="<?php if(isset ($this->datos[0]['utilidad'])){echo $this->datos[0]['utilidad'];}else{echo '15';}?>">
                     </div>
                 </div>

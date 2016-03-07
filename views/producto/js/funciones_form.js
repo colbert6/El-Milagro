@@ -90,12 +90,13 @@ $(function() {
     $("#codigo_barra").blur(function(){
         
         if($(this).val()!='' && ($(this).val().length==13 || $(this).val().length==12 || $(this).val().length==8 || $(this).val().length==7 || $(this).val().length==5)){
-            $.post(url+'producto/buscador','codigo_barra='+$(this).val(),function(datos){
+            var cod_barra=$(this).val();
+            $.post(url+'producto/buscador',{codigo_barra:cod_barra},function(datos){
                 if(datos.length>0 ){
                     if($("#id_producto").val()==datos[0].id_producto){   
                         
                     }else{
-                        alert("El producto ya existe");
+                        alert("El producto ya existe en codigo:"+datos[0].id_producto);
                         $("#codigo_barra").focus();
                     }
                     

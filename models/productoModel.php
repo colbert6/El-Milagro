@@ -31,7 +31,7 @@ class productoModel extends Model
         $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
                                 . " from producto as p , marca as m, tipo_producto as tp "
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto "
-                                . " order by m.descripcion asc,tp.descripcion asc ");
+                                . " order by m.descripcion asc,tp.descripcion,p.descripcion  asc ");
         return $datos->fetchall();
     }
     public function selecciona_reporte_order_tipo()//todos los productos
@@ -39,7 +39,7 @@ class productoModel extends Model
         $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
                                 . " from producto as p , marca as m, tipo_producto as tp "
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto "
-                                . " order by tp.descripcion asc,m.descripcion asc ");
+                                . " order by tp.descripcion asc,m.descripcion,p.descripcion asc ");
         return $datos->fetchall();
     }
     public function selecciona_reporte_filtro($m,$t)//todos los productos
@@ -55,7 +55,7 @@ class productoModel extends Model
             $sql.=  " and p.id_tipo_producto=".$t;
         }
         
-        $sql.= " order by m.descripcion asc,tp.descripcion asc ";
+        $sql.= " order by m.descripcion asc,tp.descripcion,p.descripcion asc ";
         
         $datos = $this->_db->query($sql);
         return $datos->fetchall();
@@ -123,6 +123,26 @@ class productoModel extends Model
                             ':presentacion' => $this->presentacion,
                             ':contenido' => $this->contenido,
                             ':fraccion' => $this->fraccion,
+                            ':ult_precio_compra' => $this->ult_precio_compra,
+                            ':ult_precio_venta' => $this->ult_precio_venta,
+                            ':utilidad' => $this->utilidad
+                            
+                        ));
+        
+    }
+    
+    public function act_precios()
+    {
+        
+        $this->_db->prepare("UPDATE producto SET 
+            
+                ult_precio_compra=:ult_precio_compra,
+                ult_precio_venta=:ult_precio_venta,utilidad=:utilidad ,ult_modificacion=NOW() 
+                
+                WHERE id_producto=:id_producto")
+                ->execute(
+                        array(
+                            ':id_producto' => (int)$this->id_producto,
                             ':ult_precio_compra' => $this->ult_precio_compra,
                             ':ult_precio_venta' => $this->ult_precio_venta,
                             ':utilidad' => $this->utilidad

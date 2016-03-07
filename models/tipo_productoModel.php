@@ -30,7 +30,8 @@ class tipo_productoModel extends Model
     }
     public function seleccion_relacionados()
     {
-        $datos = $this->_db->query("select DISTINCT t.* from tipo_producto as t, producto as p where t.id_tipo_producto=p.id_tipo_producto");
+        $datos = $this->_db->query("select DISTINCT t.* from tipo_producto as t, producto as p where t.id_tipo_producto=p.id_tipo_producto"
+                                   . " Order by t.descripcion asc ");
         return $datos->fetchall();
     }
     public function insertar()

@@ -28,7 +28,8 @@ class marcaModel extends Model
     }
     public function seleccion_relacionados()
     {
-        $datos = $this->_db->query("select DISTINCT m.* from marca as m, producto as p where m.id_marca=p.id_marca");
+        $datos = $this->_db->query("select DISTINCT m.* from marca as m, producto as p where m.id_marca=p.id_marca"
+                                   ." Order by m.descripcion ");
         return $datos->fetchall();
     }
     
