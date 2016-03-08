@@ -26,6 +26,7 @@ class productoModel extends Model
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
         return $datos->fetchall();
     }
+    
     public function selecciona_reporte()//todos los productos
     {
         $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
@@ -34,7 +35,8 @@ class productoModel extends Model
                                 . " order by m.descripcion asc,tp.descripcion,p.descripcion  asc ");
         return $datos->fetchall();
     }
-    public function selecciona_reporte_order_tipo()//todos los productos
+    
+    public function selecciona_reporte_order_tipo()//todos los productos ordenados por tipo
     {
         $datos = $this->_db->query("select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
                                 . " from producto as p , marca as m, tipo_producto as tp "
@@ -42,7 +44,8 @@ class productoModel extends Model
                                 . " order by tp.descripcion asc,m.descripcion,p.descripcion asc ");
         return $datos->fetchall();
     }
-    public function selecciona_reporte_filtro($m,$t)//todos los productos
+    
+    public function selecciona_reporte_filtro($m,$t)//productos filtrados
     {
         $sql="";
         $sql.=  "select p.*,m.descripcion as marca , tp.descripcion as tipo_producto "
@@ -68,6 +71,7 @@ class productoModel extends Model
                                 . " where estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ");
         return $datos->fetchall();
     }
+    
     public function selecciona_id()
     {
         $datos = $this->_db->query("select * "
@@ -75,6 +79,7 @@ class productoModel extends Model
                                 . " where estado=1 and id_producto=".$this->id_producto);
         return $datos->fetchall();
     }
+    
     public function insertar()
     {
         $this->_db->prepare("INSERT INTO producto 
@@ -151,16 +156,12 @@ class productoModel extends Model
         
     }
     
-    function buscar_codigo_barra($codigo)
+    public function buscar_codigo_barra($codigo)
     {
         $datos = $this->_db->query("select * from producto where estado=1 and codigo_barra='".$codigo."'");
         return $datos->fetchall();
             
     }
-    public function eliminar($id)
-    {
-        $id = (int) $id;
-        $this->_db->query("DELETE FROM posts WHERE id = $id");
-    }
+    
 }
 ?>

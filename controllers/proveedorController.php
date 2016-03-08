@@ -34,13 +34,14 @@ class proveedorController extends Controller
         $this->_vista->setJs_(array('funciones_form'));
         $this->_vista->renderizar('form');
     }
+    
     public function editar($id) {
         if (!$this->filtrarInt($id)) {
             $this->redireccionar('proveedor');
         }
 
         if ($_POST['guardar'] == 1) {
-            $this->_model->id_proveedor = $_POST['id_proveedor'];
+            $this->_model->id_proveedor = (int)$_POST['id_proveedor'];
             $this->_model->razon_social = ucwords(strtolower( $_POST['razon_social']));
             $this->_model->ruc = $_POST['ruc'];
             $this->_model->direccion = $_POST['direccion'];
@@ -56,6 +57,7 @@ class proveedorController extends Controller
         $this->_vista->setJs_(array('funciones_form'));
         $this->_vista->renderizar('form');
     }
+    
     public function buscador(){
         if(isset($_POST['ruc'])){
             $busqueda = $this->_model->buscar_ruc(trim($_POST['ruc']));

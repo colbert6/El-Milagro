@@ -53,8 +53,7 @@
                     }
                     ],
                     
-                    
-                    'aaSorting': [[ 2, 'asc' ]],//ordenar
+                    'aaSorting': [[ 2, 'asc' ],[3,'asc'],[6,'asc']],//ordenar
                     'iDisplayLength': 15,
                     'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']]
                     

@@ -13,12 +13,12 @@ class proveedorModel extends Model
         parent::__construct();
     }
     
-    
     public function selecciona()
     {
         $datos = $this->_db->query("select * from proveedor");
         return $datos->fetchall();
     }
+    
     public function selecciona_id()
     {
         $datos = $this->_db->query("select * from proveedor where id_proveedor=".$this->id_proveedor);
@@ -63,10 +63,5 @@ class proveedorModel extends Model
                         ));
     }
     
-    public function eliminar($id)
-    {
-        $id = (int) $id;
-        $this->_db->query("DELETE FROM posts WHERE id = $id");
-    }
 }
 ?>

@@ -21,8 +21,8 @@
             <tr>
                 <td><?php echo "0000".((int)$this->datos[$i]['id_producto']);//id ?></td>
                 <td><?php echo $this->datos[$i]['codigo_barra'];//barra ?></td>
-                <td><?php echo $this->datos[$i]['marca_desc'];//barra ?></td>
-                <td><?php echo $this->datos[$i]['tipo_producto_desc'];//barra ?></td>
+                <td><?php echo $this->datos[$i]['marca_desc'];// ?></td>
+                <td><?php echo $this->datos[$i]['tipo_producto_desc'];// ?></td>
                 <td><?php echo $this->datos[$i]['marca'];// ?></td> 
                 <td><?php echo $this->datos[$i]['tipo_producto'];// ?></td> 
                 <td><?php if(trim($this->datos[$i]['contenido'])<>""){
@@ -44,7 +44,7 @@
     </table>  
     <div class="btn-group">
     </div>      
-    <?php } else { ?>
+<?php } else { ?>
     <p>NO SE ENCONTRARON DATOS</p>
-         <?php } ?>
+<?php } ?>
         

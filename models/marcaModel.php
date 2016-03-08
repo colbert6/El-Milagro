@@ -10,30 +10,31 @@ class marcaModel extends Model
         parent::__construct();
     }
     
-    
     public function selecciona()
     {
         $datos = $this->_db->query("select * from marca");
         return $datos->fetchall();
     }
+    
     public function selecciona_prod()
     {
         $datos = $this->_db->query("select * from marca order by descripcion");
         return $datos->fetchall();
     }
+    
     public function selecciona_id()
     {
         $datos = $this->_db->query("select * from marca where id_marca=".$this->id_marca);
         return $datos->fetchall();
     }
+    
     public function seleccion_relacionados()
     {
         $datos = $this->_db->query("select DISTINCT m.* from marca as m, producto as p where m.id_marca=p.id_marca"
                                    ." Order by m.descripcion ");
         return $datos->fetchall();
     }
-    
-            
+           
     public function insertar()
     {
         $this->_db->prepare("INSERT INTO marca (descripcion,abreviatura) VALUES ( :descripcion,:abreviatura)")
@@ -59,10 +60,5 @@ class marcaModel extends Model
                         ));
     }
     
-    public function eliminar($id)
-    {
-        $id = (int) $id;
-        $this->_db->query("DELETE FROM posts WHERE id = $id");
-    }
 }
 ?>

@@ -44,10 +44,8 @@
                     
                     <button type="button" data-toggle="modal" 
                             onclick="act_precios('<?php echo $this->datos[$i]['id_producto'] ?>',
-                                                '<?php echo $this->datos[$i]['marca']." ".$this->datos[$i]['tipo_producto']." ".$this->datos[$i]['descripcion']; ?>',
-                                                '<?php echo $this->datos[$i]['ult_precio_compra'] ?>',
-                                                '<?php echo $this->datos[$i]['utilidad'] ?>',
-                                                '<?php echo $this->datos[$i]['ult_precio_venta'] ?>')"  class="btn btn-primary btn-sm" title="Actualizar Precios" id="AbrirVtnActPrecios"><i class="icon-money icon-white"></i></button>
+                                                '<?php echo $this->datos[$i]['marca']." ".$this->datos[$i]['tipo_producto']." ".$this->datos[$i]['descripcion']; ?>'
+                                                )"  class="btn btn-primary btn-sm" title="Actualizar Precios" id="AbrirVtnActPrecios"><i class="icon-money icon-white"></i></button>
             
                 </td>
             </tr>

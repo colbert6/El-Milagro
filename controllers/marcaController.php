@@ -37,6 +37,7 @@ class marcaController extends Controller
         $this->_vista->setJs_(array('funciones_form'));
         $this->_vista->renderizar('form');
     }
+    
     public function editar($id) {
         if (!$this->filtrarInt($id)) {
             $this->redireccionar('marca');

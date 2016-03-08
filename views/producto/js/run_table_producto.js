@@ -115,28 +115,39 @@
 
     
    });
-    
+
+
               
  }); 
 
+   function act_precios(id,desc){
+   
+      $("#modalActPrecios").modal('show');
+      
+       $.post(url+'producto/buscador',{id_producto:id},function(pro){
+           
+        var prec_c ,uti ,prec_v ;
+        
+        prec_c =parseFloat(pro[0].ult_precio_compra).toFixed(3);
+        uti =parseFloat(pro[0].utilidad).toFixed(2);
+        prec_v =parseFloat(pro[0].ult_precio_venta).toFixed(3);
+         
+        $("#id_producto").val(id);
+        $("#descripcion").val(desc);
+        $("#precio_compra").val(prec_c);
+        $("#utilidad").val(uti);
+        $("#precio_venta").val(prec_v);
 
-function act_precios(id,desc,prec_c,uti,prec_v){
-   $("#modalActPrecios").modal('show');
-    
-   $("#id_producto").val(id);
-   $("#descripcion").val(desc);
-   $("#precio_compra").val(prec_c);
-   $("#utilidad").val(uti);
-   $("#precio_venta").val(prec_v);
-   
-   $("#nuevo_precio_compra").val(prec_c);
-   $("#nuevo_utilidad").val(uti);
-   $("#nuevo_precio_venta").val(prec_v);
-   
-   
-    $("#VtnActPrecios").show();
+        $("#nuevo_precio_compra").val(prec_c);
+        $("#nuevo_utilidad").val(uti);
+        $("#nuevo_precio_venta").val(prec_v);
+                   
+    }, 'json');
+      
+   $("#VtnActPrecios").show();
    $("#nuevo_precio_compra").focus(); 
-}
+}    
+
 
 
 

@@ -1,5 +1,8 @@
 <?php
-
+/*-------------NO TERMINADO---------------- 
+ * no fue parte de los requerimientos
+ * 
+ 
 class ingresoController extends Controller
 {
     private $_model;
@@ -22,12 +25,9 @@ class ingresoController extends Controller
     public function nuevo() {
         if ($_POST['guardar'] == 1) {
             
-                
                 $this->_model->codigo_barra =  $_POST['codigo_barra'];
-
                 $this->_model->insertar();
                 $this->redireccionar('ingreso');
-            
             
         }
         
@@ -40,4 +40,6 @@ class ingresoController extends Controller
     }
     
 }
+ 
+ */
 ?>

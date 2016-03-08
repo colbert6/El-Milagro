@@ -11,7 +11,7 @@
         <meta name="description" content="" >
         <meta name="viewport" content="width=device-width">
         
-        <link rel="shortcut icon" href="<?php echo BASE_URL?>public/img/olympo.png"  />
+        <link rel="shortcut icon" href="<?php echo BASE_URL?>public/img/logo_pest.png"  />
         
         <link href="<?php echo BASE_URL ?>public/css/bootstrap.css" rel="stylesheet" />
         <link href="<?php echo BASE_URL ?>public/css/font-awesome.css" rel="stylesheet" />

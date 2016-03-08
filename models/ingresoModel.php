@@ -1,5 +1,7 @@
 <?php
-
+/* ----- NO TERMINADO --------
+*no era parte de los requerimientos
+ * 
 class ingresoModel extends Model
 {
     public $id_ingreso;
@@ -48,10 +50,7 @@ class ingresoModel extends Model
                         ));
     }
     
-    public function eliminar($id)
-    {
-        $id = (int) $id;
-        $this->_db->query("DELETE FROM posts WHERE id = $id");
-    }
 }
+ 
+ */
 ?>
