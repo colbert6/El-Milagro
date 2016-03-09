@@ -19,7 +19,7 @@ class reportesController extends Controller {
     }
     
     public function index(){
-        
+        $this->_vista->titulo = 'Reportes de Productos';
         $this->_vista->tipo_producto = $this->_tipo_producto->seleccion_relacionados();
         $this->_vista->marca = $this->_marca->seleccion_relacionados();
         $this->_vista->setJs_(array('funciones_form'));

@@ -1,10 +1,10 @@
 <div class="navbar-inner text-center">
-<h3>Reportes de Botica El Milagro</h3>
+<h3></h3>
     <div id="grilla" class="grilla-min">
     <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr>
-            <th colspan="2">Lista de Reportes</th>
+            <th colspan="3" >*Lista de Reportes</th>
         </tr>
         </thead>
         <tbody>
@@ -59,6 +59,10 @@
                 </form>
                 
             </tr>
+            
         </tbody>
     </table>
+    
+        
+        
     </div>
