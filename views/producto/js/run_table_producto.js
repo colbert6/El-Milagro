@@ -98,9 +98,14 @@
     var npc=$("#nuevo_precio_compra").val();
     var nu=$("#nuevo_utilidad").val();
     var npv=$("#nuevo_precio_venta").val();
+    
+    if (isNaN(npc) || npc=='') {    npc = 0;  }
+    if (isNaN(nu)  || nu=='')  {    nu  = 0;  }
+    if (isNaN(npv) || npv=='') {    npv = 0;  }
 
     $.post(url+'producto/act_precios',{id:id,p_compra:npc,uti:nu,p_venta:npv});
-
+    
+    
     var npc2=parseFloat(npc).toFixed(3);
     var nu2=parseFloat(nu).toFixed(2);
     var npv2=parseFloat(npv).toFixed(3);

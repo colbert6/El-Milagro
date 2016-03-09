@@ -6,7 +6,7 @@
                <li><a href="<?php echo BASE_URL?>producto/">Producto</a></li>
                <li><a href="<?php echo BASE_URL?>marca/">Marca</a></li>
                <li><a href="<?php echo BASE_URL?>tipo_producto/">Tipo Producto</a></li>
-               <li><a href="<?php echo BASE_URL?>proveedor/">Proveedor</a></li>
+               <!--li><a href="<?php // echo BASE_URL?>proveedor/">Proveedor</a></li!-->
             </ul>
         </li>
 

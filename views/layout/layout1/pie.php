@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-md-12">
             <!-- Copyright info  Colbert Calampa Tantachuco-->
-            <p class="copy">Copyright &copy; 2016 | <a href="javascript:">El Milagro</a> </p>
+            <p class="copy">Copyright &copy; 2016 | <a href="javascript:">El Milagro-Yurimaguas</a> </p>
       </div>
     </div>
   </div>
