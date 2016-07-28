@@ -1,7 +1,6 @@
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteEngine on 
+RewriteCond $1 !^(index.php|css|js|images|robots.txt) 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
-
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /El-Milagro/index.php/$1 [L]
+ErrorDocument 404 /El-Milagro/index.php

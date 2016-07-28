@@ -1,0 +1,21 @@
+cambiar la hora del servidor (America Latina)
+
+Configurar el config.php, database.php
+
+permitir las abreviaturas (<? ?>) open_tag=on en php.ini
+
+Revisar el .htaccess para el redireccionamiento
+
+
+BASE DE DATOS ... 
+
+---ADD TABLA marca CAMPO estado
+--- Cambie el nombre de TABLA personal_inventario => detalle_inventario
+--ADD TABLA detalle_inventario CAMPO fecha_guardado
+--MODIF TABLA producto CAMPO ult_modificacion poner Datetime default current_timestamp
+
+
+
+
+REvisar
+https://datatables.net/examples/api/add_row.html

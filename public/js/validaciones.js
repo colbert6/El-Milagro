@@ -1,7 +1,17 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+function validar_form ( datos ) {
+  validez=true;  
+  for ( var i in datos) {
+        validez=validez && $("#"+datos[i]).required();
+  }
+  return validez;
+}
+
+function quitar_formato(datos) {
+  $('#msg').html('');
+  for ( var i in datos) {
+        $("#"+datos[i]).css('border','solid 1px #ccc');     
+  }
+}
 
 function soloNumeros(evt){
 	evt = (evt) ? evt : event; //Validar la existencia del objeto event
@@ -76,11 +86,12 @@ function editar(url){
     window.location = url;
 }
 
+
 $(function() {
   $.fn.required = function() {
     if ( $(this).val() == '' || $(this).val() == 0 ) {
         $(this).css('border','solid 1px red');
-        $('#msg').html('<label class="lbl_msg">Debes llenar todos los campos necesarios</label>');
+        $('#msg').html('<label class="control-label" for="inputWarning"><i class="fa fa-warning"></i> Debes llenar todos los campos necesarios</label>');
         $(this).focus();
         return false;
     }else {
@@ -163,3 +174,90 @@ function getDias(fecha_final,fecha_inicio) {
 function diasMes(humanMonth, year) {
     return new Date(year || new Date().getFullYear(), humanMonth, 0).getDate();
 }
+//-----------------------------------------------------------
+function isValidDate(day,month,year)
+{
+    var dteDate;
+     month=month-1;
+     dteDate=new Date(year,month,day);
+     return ((day==dteDate.getDate()) && (month==dteDate.getMonth()) && (year==dteDate.getFullYear()));
+}
+ 
+function validate_fecha(fecha)
+{
+	var values=fecha.split("-");
+        if(isValidDate(values[2],values[1],values[0]))
+        {
+            return true;
+        }
+ /*   var patron=new RegExp("^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$");
+ 
+    if(fecha.search(patron)==0)
+    {
+        var values=fecha.split("-");
+        if(isValidDate(values[2],values[1],values[0]))
+        {
+            return true;
+        }
+    }
+    return false;*/
+}
+
+function validar()
+{ 
+    var fecha=document.getElementById("fechar").value;
+    var x=new Date();
+    if(validate_fecha(fecha)==true){
+     var j =   document.getElementById("result").innerHTML="La fecha "+fecha+" es correcta";
+     console.log(j);
+    }else{
+      var j =  document.getElementById("result").innerHTML="La fecha "+fecha+" es incorrecta";
+      console.log(j);
+  }
+}
+//...............
+function calendario(){
+
+      var x=new Date();
+      var dater=document.getElementById("fechar").value;
+      var fecha = dater.split("/");
+      var j = x.setFullYear(fecha[2],fecha[1]-1,fecha[0]);
+      console.log(date(DATE_RFC822));
+      var today = new Date();
+ 
+      if (x >= today)
+        return false;
+      else
+        return true;
+}
+function fecha(dd, mm, aa)	{
+	var fecha = new Date();
+	fecha.setDate(dd);
+	fecha.setMonth(mm - 1);
+	fecha.setFullYear(aa);
+	var hoy = fecha.getDay();
+	var Semana = ["Dominago","Lunes","Martes","Miércoles","Jueves","Viernes","Sabado"];
+	var mes = ",enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre".split(",");
+	cadena = Semana[hoy] + " " + dd + " de " + mes[mm] + " de " + aa;
+	if (hoy == 0)
+		alert("Los Domingos no trabajamos...");
+	else
+		document.forms.salida.comentario.value = cadena;
+}
+function existeFecha(){
+	var fecha=document.getElementById("fechar").value;
+      var fechaf = fecha.split("/");
+      
+      var day = fechaf[0];
+      var month = fechaf[1];
+      var year = fechaf[2];
+      var date = new Date(year,month,'0');
+      alert(date);
+      if((day-0)>(date.getDate()-0)){
+            return false;
+      }
+      return true;
+}
+
+
+  

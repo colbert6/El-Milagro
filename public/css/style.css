@@ -1,13 +1,13 @@
 @media(min-width: 1100px){
     #headerSection {
 	width: 1200px;
-        height: 12px!important;
+    height: 40px!important;
 	margin: 0 auto;
 	-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.5);box-shadow:0 5px 15px rgba(0,0,0,0.5);
     }
     #cuerpo {
 	width: 1200px;
-        height: 650px;
+        height: auto;
 	margin: 3px auto;
 	-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.5);box-shadow:0 5px 15px rgba(0,0,0,0.5);
     }
@@ -1870,3 +1870,31 @@ transition: border linear 0.2s, box-shadow linear 0.2s;
 .bootbox .modal-body{
     background: white;
 }*/
+
+
+td.detail-control {
+    background: url('../img/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.detail-control {
+    background: url('../img/details_close.png') no-repeat center center;
+}
+td.editar-data {
+    background: url("../img/edit.png") no-repeat center center;
+    cursor: pointer;
+}
+td.eliminar-data {
+    background: url("../img/eliminar.png") no-repeat center center;
+    cursor: pointer;
+}
+td.inventariar-data {
+    background: url("../img/inventariar.png") no-repeat center center;
+    cursor: pointer;
+}
+
+.resaltar{
+	border-width: 4px; 
+	border-style: double; 
+	border-color: blue;
+	padding:4px;
+}
