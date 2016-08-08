@@ -1,39 +1,19 @@
 $(document).ready(function() {
     //var base_url definida en header
-    var table =$('#tab').DataTable( {
-
+    var table =$('#table').DataTable({  
         "processing": true,
         "ajax": {
-            "url": base_url+"marca/cargar_datos/",
+            "url": base_url+"producto/cargar_datos/",
             "type": "POST"
-        },
-        "columns": [
-            { "data": "id_marca" },
-            { "data": "descripcion" },
-            { "data": "abreviatura" }, 
-            {
-                "className":      'editar-data',
-                "orderable":      false,
-                "data":           null,
-                "defaultContent": ''
-            },
-            {
-                "className":      'eliminar-data',
-                "orderable":      false,
-                "data":           null,
-                "defaultContent": ''
-            }
-        ],
-        "bPaginate": true,
-        "bLengthChange": true,
-        "bFilter": true,
-        "bSort": true,
-        "bInfo": true,
-        "bAutoWidth": false,
-        "oLanguage" :{
+        },     
+        "scrollY":        "400px",
+        "scrollCollapse": true,
+        "paging":         false,
+        'sPaginationType': 'full_numbers',
+        'oLanguage':{
             'sProcessing':     'Cargando...',
             'sLengthMenu':     'Mostrar _MENU_ registros',
-            'sZeroRecords':    'No se encontraron resultados',
+            'sZeroRecords':    'Ingrese Filtro para busquedad',
             'sEmptyTable':     'Ningún dato disponible en esta tabla',
             'sInfo':           'Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros',
             'sInfoEmpty':      'Mostrando registros del 0 al 0 de un total de 0 registros',
@@ -43,93 +23,74 @@ $(document).ready(function() {
             'sUrl':            '',
             'sInfoThousands':  '',
             'sLoadingRecords': 'Cargando...',
-            'oPaginate': {
-                'sFirst':    'Primero',
-                'sLast':     'Último',
-                'sNext':     'Siguiente',
-                'sPrevious': 'Anterior'
-            },
             'oAria': {
                 'sSortAscending':  ': Activar para ordenar la columna de manera ascendente',
                 'sSortDescending': ': Activar para ordenar la columna de manera descendente'
             }
         },
+        "columns": [
+            { "data": "id_producto" },
+            { "data": "codigo_barra" },
+            { "data": "marca_desc" }, 
+            { "data": "marca" },
+            { "data": "tipo_producto_desc" },
+            { "data": "tipo_producto" },
+            { "data": "descripcion" },
+            { "data": "fraccion" },
+            { "data": "ult_precio_venta" }
+        ],
         "columnDefs": [
-                    {
-                        "targets": [ 2 ],
-                        "visible": true
-                    }],
-        'aaSorting': [[ 0, 'asc' ]],//ordenar
-        'iDisplayLength': 10,
-        'aLengthMenu': [[5, 10, 20], [5, 10, 20]]
-    } );
-    
-    $('#nuevo_modal').on('click', function () {      //Limpiar los datos del modal-form
-        $("#id").val('');
-        $("#descripcion").val('');
-        $("#abreviatura").val('');
-
-        var campos_form = ["descripcion","abreviatura"];
-        quitar_formato(campos_form);
-
-    } );
-
-    $('#tab tbody').on('click', 'td.editar-data', function () { //Agregar los datos correspondientes al modal-form
-        var tr = $(this).closest('tr');
-        var row = table.row( tr );
-        $("#id").val(row.data().id_marca);
-        $("#descripcion").val(row.data().descripcion);
-        $("#abreviatura").val(row.data().abreviatura);
-
-        var campos_form = ["descripcion","abreviatura"];
-        quitar_formato(campos_form);
-
-
-        $("#modal_form").modal({show: true});
-    } );
-
-    $('#tab tbody').on('click', 'td.eliminar-data', function () { //Agregar los datos correspondientes al modal-delete
-        var tr = $(this).closest('tr');
-        var row = table.row( tr );
-        $("#modal_delete").modal({show: true});
-        $("#id_dato_eliminar").val(row.data().id_marca);
-        $('#desc_dato_eliminar').html(row.data().descripcion);
-
-    } );
-
-    $('#submit_form').on('click', function () {        //Enviar los datos del modal-form a guardar en el controlador
-        var campos_form = ["descripcion","abreviatura"];//campos que queremos que se validen
-        if(!validar_form(campos_form)){
-            return false;            
+        {
+            "targets": [ 0 ],
+            "searchable": false
+        },
+        {
+            "targets": [ 1 ],
+            "visible": false
+        },
+        {
+            "targets": [ 2 ],
+            "visible": false
+        },
+        {
+            "targets": [ 4 ],
+            "visible": false
+        },
+        {
+            "targets": [ 7 ],
+            "searchable": false
         }
-
-        id = $("#id").val();
-        descripcion = $("#descripcion").val();
-        abreviatura = $("#abreviatura").val();
+        ],        
+        'iDisplayLength': 15,
+        'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']]
         
-        $.post(base_url+"marca/guardar",{id:id,descripcion:descripcion,abreviatura:abreviatura},function(valor){
-            if(!isNaN(valor)){
-                alert('Guardado exitoso');
-                table.ajax.reload( null, false);
-                $("#modal_form").modal('hide');
-            }else{
-                alert('guardar error:'+valor);
-            }
-        });
         
-    } );
+    });
 
-    $('#delete_click').on('click', function () {   //Enviar los datos del modal-form a eliminar en el controlador
-        var id = $("#id_dato_eliminar").val();
-        $.post(base_url+"marca/eliminar",{id:id},function(valor){
-            if(!isNaN(valor)){
-                alert('Dato eliminado');
-                table.ajax.reload( null, false);
-                $("#modal_delete").modal('hide');
-            }else{
-                alert('eliminar error:'+valor);
-            }
-        });
-    } );
 
-} );
+    limpiar_filtro();
+
+    var html = '';
+        html += '<input  type="button" class="btn btn-primary" class="k-button" onclick="limpiar_filtro()" value="LIMPIAR">';
+        html += ' ';
+    $('div.dataTables_filter').append(html);
+    
+    
+    $(document).keydown(function(tecla){
+        if (tecla.keyCode == 113) { 
+            $('div.dataTables_filter input[type=search]').val("");
+            $('div.dataTables_filter input[type=search]').focus();
+        }
+    });
+    
+    $('div.dataTables_filter input[type=search]').blur(function(){
+        $('div.dataTables_filter input[type=search]').focus();
+    });
+    
+    
+});
+
+function limpiar_filtro() {
+        $('div.dataTables_filter input[type=search]').val("");
+        $('div.dataTables_filter input[type=search]').focus();
+}

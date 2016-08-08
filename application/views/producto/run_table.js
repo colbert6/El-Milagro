@@ -8,21 +8,23 @@ $(document).ready(function() {
             "type": "POST"
         },
         "columns": [
+            { "data": "codigo_barra" },
             { "data": "id_producto" },
             { "data": "marca_desc" },
             { "data": "tipo_producto_desc" }, 
             { "data": "descripcion_2" },
             { "data": "fraccion" },  
             { "data": "ult_precio_compra" }, 
-            { "data": "ult_precio_venta" },  
+            { "data": "ult_precio_venta" }, 
+            { "data": "ult_modificacion" },  
             {
                 "className":      'editar-data',
                 "orderable":      false,
                 "data":           null,
                 "defaultContent": ''
-            },
+            },  
             {
-                "className":      'eliminar-data',
+                "className":      'editar_precio-data',
                 "orderable":      false,
                 "data":           null,
                 "defaultContent": ''
@@ -60,8 +62,12 @@ $(document).ready(function() {
         },
         "columnDefs": [
                     {
-                        "targets": [ 2 ],
-                        "visible": true
+                        "targets": [ 0 ],
+                        "visible": false
+                    },
+                    {
+                        "targets": [ 5 ],
+                        "visible": false
                     }],
         'aaSorting': [[ 0, 'asc' ]],//ordenar
         'iDisplayLength': 10,
@@ -103,11 +109,18 @@ $(document).ready(function() {
         $("#utilidad").val(row.data().utilidad);
         $("#ult_precio_venta").val(row.data().ult_precio_venta);
 
-        var campos_form = ["descripcion","abreviatura"];
+        var campos_form = ["id_marca","id_tipo_producto","descripcion"];
         quitar_formato(campos_form);
 
 
         $("#modal_form").modal({show: true});
+    } );
+
+    $('#tab tbody').on('click', 'td.editar_precio-data', function () { //Agregar los datos correspondientes al modal-delete
+        alert('Falta implementar');
+        $("#modal_form_editar_precio").modal({show: true});
+
+
     } );
 
     $('#tab tbody').on('click', 'td.eliminar-data', function () { //Agregar los datos correspondientes al modal-delete
@@ -120,7 +133,7 @@ $(document).ready(function() {
     } );
 
     $('#submit_form').on('click', function () {        //Enviar los datos del modal-form a guardar en el controlador
-        var campos_form = ["id_marca","id_tipo_producto"];//campos que queremos que se validen
+        var campos_form = ["id_marca","id_tipo_producto","descripcion"];//campos que queremos que se validen
         if(!validar_form(campos_form)){
             return false;            
         }
@@ -169,9 +182,8 @@ $(document).ready(function() {
             var cod_barra=$(this).val();
             
             $.post(base_url+'producto/buscador_codigo_barra',{codigo_barra:cod_barra},function(datos){
-                
                 if(datos.length>0 ){
-                    if(!$("#id_producto").val()==datos[0].id_producto){   
+                    if($("#id_producto").val()!=datos[0].id_producto){   
                         alert("PRODUCTO REPETIDO!! con Codigo:"+datos[0].id_producto);
                         $("#codigo_barra").focus();
                     }                    
@@ -248,5 +260,7 @@ $(function() {
             $("#utilidad").val(utilidad.toFixed(2));
         }
     }
+
+    
         
 });

@@ -84,7 +84,7 @@
         }
 
         public function buscador_codigo_barra($tabla='producto')
-        {   //$_POST['codigo_barra']="039800015464";
+        {   //$_POST['codigo_barra']="039800015465";
             if(!empty($_POST['codigo_barra'])){
                 $consulta=$this->producto_model->select_por_barra(trim($_POST['codigo_barra']));  
             }                  

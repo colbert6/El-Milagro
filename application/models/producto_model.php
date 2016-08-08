@@ -34,7 +34,8 @@
                             'ult_precio_compra' => $data['precio_compra'],
                             'ult_precio_venta' => $data['precio_venta'],
                             'estado' => 1,
-                            'utilidad' => $data['utilidad']                                
+                            'utilidad' => $data['utilidad'],
+                            'ult_modificacion' => date("Y-m-d H:i:s")                         
                          );
             if($this->db->insert('producto',$datos)){
                  $query=0;
@@ -54,7 +55,8 @@
                             'fraccion' => $data['fraccion'],
                             'ult_precio_compra' => $data['precio_compra'],
                             'ult_precio_venta' => $data['precio_venta'],
-                            'utilidad' => $data['utilidad']                                
+                            'utilidad' => $data['utilidad'],
+                            'ult_modificacion' => date("Y-m-d H:i:s")                                
                          );
             $this->db->where("id_producto",$data['id']);
             if($this->db->update('producto',$datos)){

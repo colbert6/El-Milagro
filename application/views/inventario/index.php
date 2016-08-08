@@ -7,8 +7,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Descripcion</th>
-                                <th>Abreviatura</th>
-                                <th colspan="2">Acciones</th>
+                                <th>Año</th>
+                                <th>Editar</th>
                             </tr>
                         </thead>                         
                     </table>
@@ -29,7 +29,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title"><i class="fa fa-users"></i> Formulario Marca</h4>
+                <h4 class="modal-title"><i class="fa fa-users"></i> Formulario Inventario</h4>
             </div>
             <form role="form" action="" method="post">
                 <div class="modal-body">
@@ -40,11 +40,11 @@
                     </div>  
                     <div class="form-group">
                         <label for="descripcion">Descripcion</label>
-                        <input type="text" required class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese descripcion" onkeypress="return soloLetras(event)">
+                        <input type="text" required class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese descripcion" >
                     </div>
                     <div class="form-group">
-                        <label for="abreviatura">Abreviatura</label>
-                        <input type="text" required class="form-control" id="abreviatura" name="abreviatura" placeholder="Ingrese abreviatura" onkeypress="return soloLetras(event)">
+                        <label for="ano">Año</label>
+                        <input type="text" required class="form-control" id="ano" name="ano" placeholder="Ingrese Año" onkeypress="return soloNumeros(event)">
                     </div>
                 </div>
                 <div class="modal-footer clearfix">

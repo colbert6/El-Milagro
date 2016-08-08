@@ -45,18 +45,18 @@
 
                 <li><a href="<?= base_url(); ?>buscador/"><i class=' fa fa-search'></i><span>Buscar</span></a></li>    
                 
-                <li class='has_sub'><a href='javascript:void' class='opcion_menu' ><i class='fa fa-book'></i><span>Reportes</span><span class='pull-right'><i class='fa fa-chevron-right'></i></span></a>
-                    <ul class='lista_menu'>
-                       <li><a href="<?= base_url(); ?>reportes/">Productos</a></li>
-                    </ul>
-                </li>                
-
-                <li class='has_sub'><a href='javascript:void' class='opcion_menu' ><i class='fa fa-book'></i><span>Inventario</span><span class='pull-right'><i class='fa fa-chevron-right'></i></span></a>
+                <li class='has_sub'><a href='javascript:void' class='opcion_menu' ><i class='fa fa-info-circle'></i><span>Inventario</span><span class='pull-right'><i class='fa fa-chevron-right'></i></span></a>
                     <ul class='lista_menu'>
                        <li><a href="<?= base_url(); ?>inventario/">Ver Inventarios</a></li>
                        <li><a href="<?= base_url(); ?>detalle_inventario/">Realizar Inventario</a></li>
                     </ul>
                 </li>
+
+                <li class='has_sub'><a href='javascript:void' class='opcion_menu' ><i class='fa fa-book'></i><span>Reportes</span><span class='pull-right'><i class='fa fa-chevron-right'></i></span></a>
+                    <ul class='lista_menu'>
+                       <!--li><a href="<?= base_url(); ?>reportes/">Productos</a></li-->
+                    </ul>
+                </li> 
 
             </ul>
         </div>

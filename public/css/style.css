@@ -1891,7 +1891,10 @@ td.inventariar-data {
     background: url("../img/inventariar.png") no-repeat center center;
     cursor: pointer;
 }
-
+td.editar_precio-data {
+    background: url("../img/editar_precio.png") no-repeat center center;
+    cursor: pointer;
+}
 .resaltar{
 	border-width: 4px; 
 	border-style: double; 

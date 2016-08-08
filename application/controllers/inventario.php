@@ -25,12 +25,12 @@
             if(!empty($_POST['id'])) {
                 $data= array ( 'id'=> $this->input->post('id'),
                                 'descripcion'=> $this->input->post('descripcion'),
-                                'abreviatura'=> $this->input->post('abreviatura'));
+                                'ano'=> $this->input->post('ano'));
                 $guardar=$this->inventario_model->editar($data);   
 
             }else{
                 $data= array ( 'descripcion'=> $this->input->post('descripcion'),
-                                'abreviatura'=> $this->input->post('abreviatura') );
+                                'ano'=> $this->input->post('ano') );
                 $guardar=$this->inventario_model->crear($data);
                 
             } 

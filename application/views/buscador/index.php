@@ -14,9 +14,7 @@
                             <th>Tipo</th>
                             <th>Descripcion</th>
                             <th>Fraccion</th>
-                            <th>Cant Ent </th>
-                            <th>Cant Fra </th>
-                            <th>Accion </th>
+                            <th>Precio Venta</th>
                         </tr>
                     </thead>
                 </table>  

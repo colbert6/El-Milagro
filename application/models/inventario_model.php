@@ -3,8 +3,7 @@
     class Inventario_model extends CI_Model{
         
         function __construct(){
-            parent::__construct();
-            
+            parent::__construct();            
             $this->db=$this->load->database('mysql',TRUE);        
     
         }
@@ -17,7 +16,9 @@
 
         function crear($data){
             $datos=array('inv_descripcion' => $data['descripcion'],
-                        'inv_ano' => $data['ano'] );
+                        'inv_ano' => $data['ano'],
+                        'inv_estado' => 1
+                         );
             if($this->db->insert('inventario',$datos)){
                  $query=0;
             }else{
@@ -28,8 +29,10 @@
 
         function editar($data){
             $datos=array('inv_descripcion' => $data['descripcion'],
-                        'inv_ano' => $data['ano'] );
-            $this->db->where("id_inventario",$data['id']);
+                        'inv_ano' => $data['ano'],
+                        'inv_estado' => 1
+                         );
+            $this->db->where("inv_id",$data['id']);
             if($this->db->update('inventario',$datos)){
                  $query=0;
             }else{
