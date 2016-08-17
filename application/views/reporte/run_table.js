@@ -3,9 +3,9 @@ $(document).ready(function() {
     var table =$('#table').DataTable({  
         "processing": true,
         "ajax": {
-            "url": base_url+"producto/cargar_datos/",
+            "url": base_url+"reporte/cargar_reporte/",
             "type": "POST"
-        },     
+        },
         "scrollY":        "400px",
         "scrollCollapse": true,
         "paging":         false,
@@ -27,70 +27,81 @@ $(document).ready(function() {
                 'sSortAscending':  ': Activar para ordenar la columna de manera ascendente',
                 'sSortDescending': ': Activar para ordenar la columna de manera descendente'
             }
-        },
+        },     
         "columns": [
             { "data": "id_producto" },
             { "data": "codigo_barra" },
-            { "data": "marca_desc" }, 
-            { "data": "marca" },
-            { "data": "tipo_producto_desc" },
-            { "data": "tipo_producto" },
-            { "data": "descripcion_2" },
+            { "data": "marca" }, 
+            { "data": "tipo" },
+            { "data": "descripcion" },
             { "data": "fraccion" },
-            { "data": "ult_precio_venta" }
+            { "data": "p_compra" },
+            { "data": "utilidad" },
+            { "data": "p_venta" },
+            { "data": "cant_e" },
+            { "data": "cant_f" },
+            { "data": "p_inventario" },
+            { "data": "total" }
         ],
         "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "searchable": false
-        },
         {
             "targets": [ 1 ],
             "visible": false
         },
         {
-            "targets": [ 2 ],
-            "visible": false
-        },
-        {
-            "targets": [ 4 ],
+            "targets": [ 6 ],
             "visible": false
         },
         {
             "targets": [ 7 ],
-            "searchable": false
+            "visible": false
+        },
+        {
+            "targets": [ 8 ],
+            "visible": false
         }
-        ],        
+        ],  
         'iDisplayLength': 15,
-        'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']]
+        'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']],     
+
+        dom: 'Bfrtip',
+
+        buttons: [
+            {
+                extend: 'colvis',
+                text: 'Colum Visibles'
+            },
+            {
+                extend: 'print',
+                text: 'Imprimir',
+                message: 'Inventario de Botica El Milagro',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                customize: function ( win ) {
+                    $(win.document.body)
+                        .css( 'font-size', '10pt' )
+                        .prepend(
+                            '<img src="<?=base_url();?>/public/img/logo_pest.png" style="position:absolute; top:0; left:0;" />'
+                        );
+ 
+                    $(win.document.body).find( 'table' )
+                        .addClass( 'compact' )
+                        .css( 'font-size', 'inherit' );
+                }
+
+            },
+            'copy',
+            'csv', 
+            'excel', 
+            'pdf'
+                        
+        ]
+
         
-        
     });
 
-
-    limpiar_filtro();
-
-    var html = '';
-        html += '<input  type="button" class="btn btn-primary" class="k-button" onclick="limpiar_filtro()" value="LIMPIAR">';
-        html += ' ';
-    $('div.dataTables_filter').append(html);
-    
-    
-    $(document).keydown(function(tecla){
-        if (tecla.keyCode == 113) { 
-            $('div.dataTables_filter input[type=search]').val("");
-            $('div.dataTables_filter input[type=search]').focus();
-        }
-    });
-    
-    $('div.dataTables_filter input[type=search]').blur(function(){
-        $('div.dataTables_filter input[type=search]').focus();
-    });
-    
     
 });
 
-function limpiar_filtro() {
-        $('div.dataTables_filter input[type=search]').val("");
-        $('div.dataTables_filter input[type=search]').focus();
-}
+

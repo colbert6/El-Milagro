@@ -12,17 +12,42 @@
             return $query;            
         }
 
-        function select_inventario_personal($id_inventario,$id_personal){
-            $sql="SELECT p.id_producto,p.codigo_barra,p.ult_precio_venta as precio,m.descripcion as marca_desc ,m.abreviatura as marca,
+        function select_inventario_personal($id_inventario,$id_personal){//solo filtro ppr inventario
+            $sql="SELECT p.id_producto,p.codigo_barra,p.ult_precio_compra as p_compra,m.descripcion as marca_desc ,m.abreviatura as marca,
                      tp.descripcion as tipo_producto_desc, tp.abreviado as tipo_producto,
                      CONCAT(p.descripcion,p.contenido)as descripcion, p.fraccion , p.ult_precio_venta,
                      (SELECT SUM(pro_cantidad_mayor) FROM detalle_inventario WHERE pro_id=id_producto and inv_id=$id_inventario GROUP BY pro_id ) as cant_e, 
-                     (SELECT SUM(pro_cantidad_menor) FROM detalle_inventario WHERE pro_id=id_producto and inv_id=$id_inventario GROUP BY pro_id) as cant_f 
+                     (SELECT SUM(pro_cantidad_menor) FROM detalle_inventario WHERE pro_id=id_producto and inv_id=$id_inventario GROUP BY pro_id) as cant_f,
+                      ROUND( (p.ult_precio_compra/1.18) ,3) AS p_inventario
                 FROM marca as m, tipo_producto as tp, producto as p 
                 WHERE p.estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto ";  
             $query=$this->db->query($sql);      
             return $query;            
         }
+
+        function reporte_inventario($id_inventario){//solo filtro ppr inventario
+            $sql="SELECT p.id_producto,p.codigo_barra,m.descripcion as marca ,
+                     tp.descripcion as tipo, CONCAT(p.descripcion,' ',p.contenido)as descripcion,
+                     p.fraccion ,p.ult_precio_compra as p_compra, p.utilidad ,p.ult_precio_venta as p_venta,
+                     (SELECT SUM(pro_cantidad_mayor) 
+                        FROM detalle_inventario 
+                        WHERE pro_id=id_producto and inv_id=$id_inventario 
+                        GROUP BY pro_id ) as cant_e, 
+                     (SELECT SUM(pro_cantidad_menor) 
+                        FROM detalle_inventario 
+                        WHERE pro_id=id_producto and inv_id=$id_inventario 
+                        GROUP BY pro_id) as cant_f,
+                      ROUND( (p.ult_precio_compra/1.18) ,3) AS p_inventario
+                FROM marca as m, tipo_producto as tp, producto as p 
+                WHERE p.estado=1 and p.id_marca=m.id_marca and p.id_tipo_producto=tp.id_tipo_producto and 
+                (SELECT (SUM(pro_cantidad_mayor)+SUM(pro_cantidad_menor)) 
+                        FROM detalle_inventario 
+                        WHERE pro_id=id_producto and inv_id=$id_inventario 
+                        GROUP BY pro_id)>0 ";  
+            $query=$this->db->query($sql);      
+            return $query;            
+        }
+
 
         function crear($data){
             $datos=array(   'pro_id' => $data['pro_id'],

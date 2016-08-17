@@ -112,15 +112,23 @@ $(document).ready(function() {
         var campos_form = ["id_marca","id_tipo_producto","descripcion"];
         quitar_formato(campos_form);
 
-
         $("#modal_form").modal({show: true});
     } );
 
     $('#tab tbody').on('click', 'td.editar_precio-data', function () { //Agregar los datos correspondientes al modal-delete
-        alert('Falta implementar');
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+        $("#id_producto_editar_precio").val(row.data().id_producto);
+        $("#descripcion_editar_precio").val(row.data().marca_desc+' '+row.data().tipo_producto_desc+' '+row.data().descripcion_2);
+        $("#ult_precio_compra_editar_precio").val(row.data().ult_precio_compra);
+        $("#utilidad_editar_precio").val(row.data().utilidad);
+        $("#ult_precio_venta_editar_precio").val(row.data().ult_precio_venta);
+
+        $("#nuevo_precio_compra").val(row.data().ult_precio_compra);
+        $("#nueva_utilidad").val(row.data().utilidad);
+        $("#nuevo_precio_venta").val(row.data().ult_precio_venta);
+
         $("#modal_form_editar_precio").modal({show: true});
-
-
     } );
 
     $('#tab tbody').on('click', 'td.eliminar-data', function () { //Agregar los datos correspondientes al modal-delete
@@ -156,6 +164,29 @@ $(document).ready(function() {
                 alert('Guardado exitoso');
                 table.ajax.reload( null, false);
                 $("#modal_form").modal('hide');
+            }else{
+                alert('guardar error:'+valor);
+            }
+        });
+        
+    } );
+
+    $('#submit_form_editar_precio').on('click', function () {        //Enviar los datos del modal-form a guardar en el controlador
+        var campos_form = ["nuevo_precio_compra","nueva_utilidad","nueva_precio_venta"];//campos que queremos que se validen
+        if(!validar_form(campos_form)){
+            return false;            
+        }
+
+        i_e_p = $("#id_producto_editar_precio").val();
+        n_p_c = $("#nuevo_precio_compra").val();
+        n_u = $("#nueva_utilidad").val();
+        n_p_v = $("#nuevo_precio_venta").val();
+
+        $.post(base_url+"producto/editar_precio",{id:i_e_p,p_compra:n_p_c,utilidad:n_u,p_venta:n_p_v},function(valor){
+            if(!isNaN(valor)){
+                alert('Guardado Exitoso : Precio Modificado');
+                table.ajax.reload( null, false);
+                $("#modal_form_editar_precio").modal('hide');
             }else{
                 alert('guardar error:'+valor);
             }
@@ -261,6 +292,51 @@ $(function() {
         }
     }
 
+    $("#nuevo_precio_compra").keyup(function() {
+        Calc_p_venta_edi_pre();
+    });
     
-        
+    $("#nueva_utilidad").keyup(function() {
+        Calc_p_venta_edi_pre();
+    });
+    
+    $("#nuevo_precio_venta").keyup(function() {
+        Calc_utilidad_edi_pre();
+    });
+
+    function Calc_p_venta_edi_pre() {
+
+        var utilidad = $("#nueva_utilidad").val();
+        utilidad = parseFloat(utilidad);
+        if (isNaN(utilidad)) {
+            utilidad = 0;
+        }
+        var costo = $("#nuevo_precio_compra").val();
+        costo = parseFloat(costo);
+        if (isNaN(costo)) {
+            costo = 0;
+        }
+        var venta;
+        venta = costo * ((utilidad/100)+1);
+        $("#nuevo_precio_venta").val(venta.toFixed(2));
+    }
+    
+    function Calc_utilidad_edi_pre() {
+        var costo = $("#nuevo_precio_compra").val();
+        costo = parseFloat(costo);
+        if (isNaN(costo)) {
+            costo = 0;
+        }
+        if(costo>=0.01){
+            var venta = $("#nuevo_precio_venta").val();
+            venta = parseFloat(venta);
+            if (isNaN(venta)) {
+                venta = 0;
+            }
+
+            var utilidad;
+            utilidad = 100*((venta-costo)/costo);
+            $("#nueva_utilidad").val(utilidad.toFixed(2));
+        }
+    }        
 });

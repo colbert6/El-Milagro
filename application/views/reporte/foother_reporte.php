@@ -55,11 +55,21 @@
 <?php
     if(isset ($add_table) && $add_table=='si'){    
 ?>    
-   <link href="<?= base_url(); ?>public/css/datatables/jquery.dataTables.css" rel="stylesheet" type="text/css" /> 
+   <link href="<?= base_url(); ?>public/css/datatables/jquery.dataTables.origin.css" rel="stylesheet" type="text/css" />       
+   <link href="<?= base_url(); ?>public/css/datatables/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />       
+   
    <script src="<?= base_url(); ?>public/js/datatables/jquery.dataTables.js" type="text/javascript"></script>
    <script src="<?= base_url(); ?>public/js/datatables/dataTables.buttons.min.js" type="text/javascript"></script>
+   <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js" type="text/javascript"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+   <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js" type="text/javascript"></script>  
+   <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js" type="text/javascript"></script>
+   <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js" type="text/javascript"></script>
+   <script src="<?= base_url(); ?>public/js/datatables/buttons.print.min.js" type="text/javascript"></script>
+   <script src="<?= base_url(); ?>public/js/datatables/buttons.colVis.min.js" type="text/javascript"></script>
+   
 
-   <script src="<?= base_url(); ?>application/views/<?= $this->uri-> segment(1);?>/run_table.js" type="text/javascript"></script>
+   <script src="<?= base_url(); ?>application/views/reporte/run_table_<?=$table?>.js" type="text/javascript"></script>
 <?php
     }
 ?>

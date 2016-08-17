@@ -55,8 +55,22 @@
                             'fraccion' => $data['fraccion'],
                             'ult_precio_compra' => $data['precio_compra'],
                             'ult_precio_venta' => $data['precio_venta'],
+                            'utilidad' => $data['utilidad']                               
+                         );
+            $this->db->where("id_producto",$data['id']);
+            if($this->db->update('producto',$datos)){
+                 $query=0;
+            }else{
+                 $query=$this->db->_error_message();
+            }
+            return $query;
+        }
+
+        function editar_precio($data){
+            $datos=array(   'ult_precio_compra' => $data['precio_compra'],
+                            'ult_precio_venta' => $data['precio_venta'],
                             'utilidad' => $data['utilidad'],
-                            'ult_modificacion' => date("Y-m-d H:i:s")                                
+                            'ult_modificacion' => date("Y-m-d H:i:s")                              
                          );
             $this->db->where("id_producto",$data['id']);
             if($this->db->update('producto',$datos)){

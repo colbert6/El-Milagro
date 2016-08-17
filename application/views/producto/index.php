@@ -215,19 +215,19 @@
                     <input name="guardar" id="guardar" type="hidden" value="1">
                     
                     <div class="row"  style="border-bottom: solid 1px #D8D8D8;margin: 0px 0px 0px 0px;">
-                        <div class="col-md-5">
+                        <div class="col-md-3">
                             <div class="form-group"  style="margin: 5px auto 5px auto">
-                                <label class="col-md-4 control-label" > Codigo:</label>
-                                <div class="col-md-8">
+                                <label class="col-md-3 control-label" > Codigo:</label>
+                                <div class="col-md-6">
                                     <input id="id_producto_editar_precio" class="form-control" readonly="true">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-7">
+                        <div class="col-md-9">
                             <div class="form-group"  style="margin: 5px auto 5px auto">
-                                <label class="col-md-4 control-label" >Descripcion:</label>
-                                <div class="col-md-8">
+                                <label class="col-md-3 control-label" >Descripcion:</label>
+                                <div class="col-md-9">
                                     <input id="descripcion_editar_precio" class="form-control" readonly="true">
                                 </div>
                             </div>
@@ -245,7 +245,7 @@
                             <div class="form-group"  style="margin: 5px auto 5px auto">
                                 <label class="col-md-4 control-label" >Costo:</label>
                                 <div class="col-md-8">
-                                    <input id="ult_precio_compra_editar_precio" class="form-control"   >
+                                    <input id="ult_precio_compra_editar_precio" class="form-control" readonly="true">
                                 </div>
                             </div>
                         </div>
@@ -253,8 +253,7 @@
                             <div class="form-group"  style="margin: 5px auto 5px auto">
                                 <label class="col-md-4 control-label" >Utilidad:</label>
                                 <div class="col-md-8">
-                                    <input id="utilidad_editar_precio" class="form-control"  placeholder="Utilidad" onkeypress="return dosDecimales(event,this)"
-                                    maxlength="10">
+                                    <input id="utilidad_editar_precio" class="form-control" readonly="true">
                                 </div>
                             </div>
                         </div>
@@ -262,8 +261,7 @@
                             <div class="form-group"  style="margin: 5px auto 5px auto">
                                 <label class="col-md-4 control-label" >Precio:</label>
                                 <div class="col-md-8">
-                                    <input  id="ult_precio_venta_editar_precio" class="form-control"  placeholder="Venta" onkeypress="return dosDecimales(event,this)"
-                                    maxlength="10"  >
+                                    <input  id="ult_precio_venta_editar_precio" class="form-control" readonly="true">
                                 </div>
                             </div>
                         </div>                        
@@ -279,8 +277,7 @@
                             <div class="form-group"  style="margin: 5px auto 5px auto">
                                 <label class="col-md-4 control-label" >Costo:</label>
                                 <div class="col-md-8">
-                                    <input name="nuevo_precio_compra" id="nuevo_precio_compra" class="form-control"  placeholder="Compra" onkeypress="return dosDecimales(event,this)"
-                                    maxlength="10"  >
+                                    <input id="nuevo_precio_compra" class="form-control"  placeholder="Compra" onkeypress="return dosDecimales(event,this)">
                                 </div>
                             </div>
                         </div>
@@ -288,8 +285,7 @@
                             <div class="form-group"  style="margin: 5px auto 5px auto">
                                 <label class="col-md-4 control-label" >Utilidad:</label>
                                 <div class="col-md-8">
-                                    <input name="nueva_utilidad" id="nueva_utilidad" class="form-control"  placeholder="Utilidad" onkeypress="return dosDecimales(event,this)"
-                                    maxlength="10">
+                                    <input id="nueva_utilidad" class="form-control"  placeholder="Utilidad" onkeypress="return dosDecimales(event,this)">
                                 </div>
                             </div>
                         </div>
@@ -297,8 +293,7 @@
                             <div class="form-group"  style="margin: 5px auto 5px auto">
                                 <label class="col-md-4 control-label" >Precio:</label>
                                 <div class="col-md-8">
-                                    <input name="nuevo_precio_venta" id="ult_precio_venta" class="form-control"  placeholder="Venta" onkeypress="return dosDecimales(event,this)"
-                                    maxlength="10"  >
+                                    <input id="nuevo_precio_venta" class="form-control"  placeholder="Venta" onkeypress="return dosDecimales(event,this)">
                                 </div>
                             </div>
                         </div>                        
@@ -309,7 +304,7 @@
             </div>
             <div class="modal-footer clearfix">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
-                <!--button type="button" id='submit_form_editar_precio' class="btn btn-primary pull-left"><i class="fa fa-check"></i> Guardar</button-->
+                <button type="button" id='submit_form_editar_precio' class="btn btn-primary pull-left"><i class="fa fa-check"></i> Guardar</button-->
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

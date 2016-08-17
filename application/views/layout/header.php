@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>El Milagro</title>
+    <title></title>
     
     <link rel="shortcut icon" href="<?= base_url(); ?>public/img/logo_pest.png"  />
     
@@ -21,7 +21,9 @@
 </head>
 <body>
     <div class="navbar bs-docs-nav" role="banner" id="headerSection" style="min-height: 10px;">
-           
+        <a href="<?=base_url();?>">
+           <img src="<?= base_url(); ?>public/img/logo_1.png" width="200px" height="38px" class="logo" >
+        </a>
     </div>
     <div class="content" id="cuerpo">
         <div class="sidebar">
@@ -54,7 +56,8 @@
 
                 <li class='has_sub'><a href='javascript:void' class='opcion_menu' ><i class='fa fa-book'></i><span>Reportes</span><span class='pull-right'><i class='fa fa-chevron-right'></i></span></a>
                     <ul class='lista_menu'>
-                       <!--li><a href="<?= base_url(); ?>reportes/">Productos</a></li-->
+                       <li><a href="<?= base_url(); ?>reporte/inventario">De Inventario</a></li>
+                       <li><a href="<?= base_url(); ?>reporte/producto">De Producto</a></li>
                     </ul>
                 </li> 
 

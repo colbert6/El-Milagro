@@ -14,14 +14,13 @@
         {   
             $dato_header= array ( 'titulo'=> 'Productos');
             $dato_foother= array ( 'add_table'=> 'si');
-            $data= array ( 'marca'=> $this->marca_model->select()->result_array(),
-                           'tipo_producto'=>$this->tipo_producto_model->select()->result_array());
+            $data= array ( 'marca'=> $this->marca_model->select_orden()->result_array(),
+                           'tipo_producto'=>$this->tipo_producto_model->select_orden()->result_array());
             //print_r($data);exit();
 
             $this->load->view("/layout/header.php",$dato_header);
             $this->load->view("/producto/index.php",$data);
             $this->load->view("/layout/foother.php",$dato_foother);
-
             
         }
 
@@ -63,6 +62,18 @@
             
         }
      
+        public function editar_precio()
+        {            
+            $data= array (  'id'=> $this->input->post('id'),
+                            'precio_compra'=> $this->input->post('p_compra'),
+                            'utilidad'=> $this->input->post('utilidad'),
+                            'precio_venta'=> $this->input->post('p_venta')
+                                 );
+            $guardar=$this->producto_model->editar_precio($data);
+            echo json_encode($guardar);            
+            
+        }
+
         public function eliminar()
         {            
             $guardar=$this->producto_model->eliminar($_POST['id']);

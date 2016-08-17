@@ -15,6 +15,13 @@
             return $query;            
         }
 
+        function select_orden(){
+            $this->db->where("estado",1);  
+            $this->db->order_by("descripcion", "asc");
+            $query=$this->db->get("marca");      
+            return $query;            
+        }
+
         function crear($data){
             $datos=array('descripcion' => $data['descripcion'],
                         'abreviatura' => $data['abreviatura'] );

@@ -58,6 +58,11 @@
             echo json_encode($result);
         }
 
+        public function backup()
+        {   
+            echo "string";
+            $this->inventario_model->db_backup();      
+        } 
 
 
     }
