@@ -69,7 +69,7 @@
    <script src="<?= base_url(); ?>public/js/datatables/buttons.colVis.min.js" type="text/javascript"></script>
    
 
-   <script src="<?= base_url(); ?>application/views/reporte/run_table_<?=$table?>.js" type="text/javascript"></script>
+   <script src="<?= base_url(); ?>application/views/reporte/run_table.js" type="text/javascript"></script>
 <?php
     }
 ?>

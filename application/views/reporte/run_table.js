@@ -1,14 +1,8 @@
 $(document).ready(function() {
     //var base_url definida en header
     var table =$('#table').DataTable({  
-        "processing": true,
-        "ajax": {
-            "url": base_url+"reporte/cargar_reporte/",
-            "type": "POST"
-        },
-        "scrollY":        "400px",
-        "scrollCollapse": true,
-        "paging":         false,
+        
+        "paging":         true,
         'sPaginationType': 'full_numbers',
         'oLanguage':{
             'sProcessing':     'Cargando...',
@@ -27,7 +21,7 @@ $(document).ready(function() {
                 'sSortAscending':  ': Activar para ordenar la columna de manera ascendente',
                 'sSortDescending': ': Activar para ordenar la columna de manera descendente'
             }
-        },     
+        },
         "columns": [
             { "data": "id_producto" },
             { "data": "codigo_barra" },
@@ -43,6 +37,7 @@ $(document).ready(function() {
             { "data": "p_inventario" },
             { "data": "total" }
         ],
+
         "columnDefs": [
         {
             "targets": [ 1 ],
@@ -101,6 +96,43 @@ $(document).ready(function() {
         
     });
 
+    function Habilitar_Selects(filtro){
+        $("#opcion").attr('disabled', !filtro);       
+
+        if(filtro){
+            $("#opcion").val('');
+            $('#cargar_tabla').val('CARGAR');
+        }else{
+            $('#cargar_tabla').val('CAMBIAR');
+        }
+        $('#cargar_tabla').toggleClass( "btn-danger" );
+        $('#cargar_tabla').toggleClass('btn-info');       
+
+    }
+
+    $('#cargar_tabla').on('click', function () {      //Limpiar los datos del modal-form
+        
+        if($(this).val()=='CARGAR'){
+            cargar_tabla();             
+        }else if($(this).val()=='CAMBIAR'){
+            alert('Cambiar Parametros');
+            table.clear().draw();          
+            Habilitar_Selects(true);          
+        }
+    });
+
+    function cargar_tabla(){
+       
+        var campos_form = ["opcion"];//campos que queremos que se validen
+        if(!validar_form(campos_form)){
+            return false;            
+        }
+        Habilitar_Selects(false);
+
+        var opcion=$("#opcion").val(); 
+
+        table.ajax.url(base_url+"reporte/cargar_reporte/"+opcion).load();
+    }    
     
 });
 

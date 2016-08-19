@@ -57,7 +57,7 @@
                 <li class='has_sub'><a href='javascript:void' class='opcion_menu' ><i class='fa fa-book'></i><span>Reportes</span><span class='pull-right'><i class='fa fa-chevron-right'></i></span></a>
                     <ul class='lista_menu'>
                        <li><a href="<?= base_url(); ?>reporte/inventario">De Inventario</a></li>
-                       <li><a href="<?= base_url(); ?>reporte/producto">De Producto</a></li>
+                       <!--li><a href="<?= base_url(); ?>reporte/producto">De Producto</a></li-->
                     </ul>
                 </li> 
 
