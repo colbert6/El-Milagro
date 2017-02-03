@@ -1,4 +1,4 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
     //var base_url definida en header
     var table =$('#tab').DataTable( {
 
@@ -172,7 +172,7 @@ $(document).ready(function() {
     } );
 
     $('#submit_form_editar_precio').on('click', function () {        //Enviar los datos del modal-form a guardar en el controlador
-        var campos_form = ["nuevo_precio_compra","nueva_utilidad","nueva_precio_venta"];//campos que queremos que se validen
+        var campos_form = ["nueva_utilidad","nueva_precio_venta"];//campos que queremos que se validen
         if(!validar_form(campos_form)){
             return false;            
         }

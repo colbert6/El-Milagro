@@ -23,38 +23,19 @@ $(document).ready(function() {
             }
         },
         "columns": [
-            { "data": "id_producto" },
-            { "data": "codigo_barra" },
-            { "data": "marca" }, 
-            { "data": "tipo" },
-            { "data": "descripcion" },
-            { "data": "fraccion" },
-            { "data": "p_compra" },
-            { "data": "utilidad" },
-            { "data": "p_venta" },
-            { "data": "cant_e" },
-            { "data": "cant_f" },
+
+            { "data": "id_producto" },         
+            {   "data":           null,
+                "defaultContent": '01'
+            }, 
+            { "data": "descrip" },
+            { "data": "presentacion" },
+            { "data": "cantidad" },
             { "data": "p_inventario" },
             { "data": "total" }
         ],
 
         "columnDefs": [
-        {
-            "targets": [ 1 ],
-            "visible": false
-        },
-        {
-            "targets": [ 6 ],
-            "visible": false
-        },
-        {
-            "targets": [ 7 ],
-            "visible": false
-        },
-        {
-            "targets": [ 8 ],
-            "visible": false
-        }
         ],  
         'iDisplayLength': 15,
         'aLengthMenu': [[5, 15, 20, -1], [5, 15, 20, 'All']],     

@@ -27,7 +27,7 @@
 
         function reporte_inventario($id_inventario){//solo filtro ppr inventario
             $sql="SELECT p.id_producto,p.codigo_barra,m.descripcion as marca ,
-                     tp.descripcion as tipo, CONCAT(p.descripcion,' ',p.contenido)as descripcion,
+                     tp.descripcion as tipo, CONCAT(p.descripcion,' ',p.contenido)as descripcion,p.presentacion,
                      p.fraccion ,p.ult_precio_compra as p_compra, p.utilidad ,p.ult_precio_venta as p_venta,
                      (SELECT SUM(pro_cantidad_mayor) 
                         FROM detalle_inventario 

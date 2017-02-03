@@ -34,20 +34,32 @@
 
 
         public function cargar_reporte($opcion)
+
         {   
             $consulta= $this->detalle_inventario_model->reporte_inventario($opcion);
             $data=$consulta->result_array();
 
             for ($i=0; $i <count($data) ; $i++) { 
+                $data[$i]["id_producto"]=str_pad($data[$i]["id_producto"], 8, "0", STR_PAD_LEFT);  
+                $data[$i]["descrip"]=$data[$i]["marca"]." ".$data[$i]["tipo"]." ".$data[$i]["descripcion"];
+
+                $pre=$data[$i]["presentacion"];
+                if($pre=="Caja"){ $data[$i]["presentacion"]='12';}
+                else{ $data[$i]["presentacion"]='07';}
+
                 $fraccion=$data[$i]["fraccion"];
                 $cant_e=$data[$i]["cant_e"];
                 $cant_f=$data[$i]["cant_f"];
-                $pre_inv=$data[$i]["p_inventario"];
-
+                
                 if($cant_f>=$fraccion && $fraccion<>1){
-                    $data[$i]["cant_e"]=$cant_e+(  floor($cant_f/$fraccion) );
-                    $data[$i]["cant_f"]=($cant_f % $fraccion); 
+                    $cant_e=$cant_e+(  floor($cant_f/$fraccion) );
+                    $cant_f=($cant_f % $fraccion); 
                 }
+
+                $data[$i]["cantidad"]=number_format($cant_e+($cant_f/$fraccion), 2, ',', ' ');
+
+
+                $pre_inv=$data[$i]["p_inventario"];
 
                 $data[$i]["total"]=number_format(($cant_e+($cant_f/$fraccion))*$pre_inv, 3);
             }

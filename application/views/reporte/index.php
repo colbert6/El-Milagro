@@ -35,19 +35,13 @@ tfoot input {
                     <thead>
                         <tr>
 
-                            <th>Cod</th>
-                            <th>Cod. Barra</th>
-                            <th>Marca</th>                        
-                            <th>Tipo</th>
-                            <th>Descripcion</th>
-                            <th>Fraccion</th>
-                            <th>P Comp</th>
-                            <th>Utilidad</th>
-                            <th>P Vent</th>
-                            <th>Cant E</th>
-                            <th>Cant F</th>
-                            <th>Prec Inv</th>
-                            <th>Total</th>
+                            <th style="width: 10%;">CODIGO DE LA EXITENCIA</th>
+                            <th style="width: 10%;">TIPO DE EXISTENCIA (TABLA 5)</th>  
+                            <th style="width: 40%;">DESCRIPCION</th>
+                            <th style="width: 10%;">CODIGO DE LA UNIDAD DE MEDIDA (TABLA 6)</th>
+                            <th style="width: 10%;">CANTIDAD</th>
+                            <th style="width: 10%;">COSTO UNITARIO</th> 
+                            <th style="width: 10%;">COSTO TOTAL</th>
                         </tr>
                     </thead>
                     
